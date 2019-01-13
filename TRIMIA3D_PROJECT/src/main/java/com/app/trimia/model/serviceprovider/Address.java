@@ -4,8 +4,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="address")
 public class Address {
 
 	@Id
@@ -22,7 +24,7 @@ public class Address {
 
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	private ProviderMaster serviceProviderRegistration;
+	private ProviderMaster providerMaster;
 
 	public String getAddressId() {
 		return addressId;

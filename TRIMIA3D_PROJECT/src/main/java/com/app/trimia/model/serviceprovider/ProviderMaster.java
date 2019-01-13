@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="providerMaster")
 public class ProviderMaster {
 	//registration field
 	@Id
@@ -28,17 +30,17 @@ public class ProviderMaster {
 	private Login login;
 	
 	//update field
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="serviceProviderRegistration")
-	private List<Address> addrerss=new ArrayList<Address>();
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
+	private List<Address> address=new ArrayList<Address>();
 	
 	//update field
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="serviceProviderRegistration")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
 	private List<ProviderCompanyMaster> serviceProviderCompanyDetails=new ArrayList<ProviderCompanyMaster>();
 	
 	//update field
 	/*@OneToOne(cascade=CascadeType.ALL)
 	private Membership memberShipId;*/
 
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="serviceProviderRegistration")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
 	private List<CompanyMasterClient> serviceProviderClient = new ArrayList<CompanyMasterClient>();
 }

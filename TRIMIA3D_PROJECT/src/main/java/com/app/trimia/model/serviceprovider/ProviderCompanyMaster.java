@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="providerCompanyMaster")
 public class ProviderCompanyMaster { 
 
 	@Id
@@ -31,13 +33,15 @@ public class ProviderCompanyMaster {
 	
 
 	@ManyToOne(cascade=CascadeType.ALL)
-	private ProviderMaster serviceProviderRegistration;
+	private ProviderMaster providerMaster;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="serviceProviderCompanyDetails")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerCompanyMaster")
 	private List<MaterialSpecializationSubCategory> productSpecialization = new ArrayList<MaterialSpecializationSubCategory>();
 	
 	private String keywords;
 
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="serviceProviderCompanyDetails")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerCompanyMaster")
 	private List<ProductOrdered> productOrdered = new ArrayList<ProductOrdered>();
+	
+	
 }

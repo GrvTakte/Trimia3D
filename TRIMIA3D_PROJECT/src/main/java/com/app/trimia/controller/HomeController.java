@@ -94,7 +94,7 @@ public class HomeController {
 	public String companies()
 	{
 		System.out.println("companies");
-		return "/serviceProviderPages/companies";
+		return "/serviceProviderPages/company";
 	}
 	
 	@RequestMapping("/AdminPaymentStatus")

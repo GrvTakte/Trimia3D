@@ -32,9 +32,7 @@ public class HomeController {
 	@RequestMapping("/productOrdered")
 	public String productOrdered()
 	{
-		System.out.println("Low Level Task");
 		System.out.println("productOrdered");
-		System.out.println("highlevel task");
 		return "/serviceProviderPages/productOrdered";
 	}
 	

@@ -9,6 +9,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String dashboard()
 	{
+		System.out.println("Grv Task");
 		System.out.println("priyanka task");
 		System.out.println("dashboard");
 		return "/serviceProviderPages/dashboard";
@@ -31,9 +32,7 @@ public class HomeController {
 	@RequestMapping("/productOrdered")
 	public String productOrdered()
 	{
-		System.out.println("Low Level Task");
 		System.out.println("productOrdered");
-		System.out.println("highlevel task");
 		return "/serviceProviderPages/productOrdered";
 	}
 	

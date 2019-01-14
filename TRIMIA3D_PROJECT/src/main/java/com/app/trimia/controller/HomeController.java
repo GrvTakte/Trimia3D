@@ -13,7 +13,6 @@ import com.app.trimia.serviceinterface.SettingsServiceInterface;
 public class HomeController {
 	
 	@Autowired
-	@Qualifier("SettingsServiceImpl")
 	SettingsServiceInterface settingsservicei;
 	
 

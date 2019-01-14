@@ -7,7 +7,7 @@ import com.app.trimia.daointerface.SettingsDaoInterface;
 import com.app.trimia.model.ProviderMaster;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 
-@Service("SettingsServiceImpl")
+@Service
 public class SettingsServiceImpl implements SettingsServiceInterface{
 	@Autowired
 	SettingsDaoInterface settingdaoi;

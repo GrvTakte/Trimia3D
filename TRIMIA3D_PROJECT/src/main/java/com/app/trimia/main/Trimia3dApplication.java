@@ -11,7 +11,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class Trimia3dApplication {
 
 	public static void main(String[] args) {
+		System.out.println("start");
 		SpringApplication.run(Trimia3dApplication.class, args);
+		System.out.println("end");
 	}
 
 }

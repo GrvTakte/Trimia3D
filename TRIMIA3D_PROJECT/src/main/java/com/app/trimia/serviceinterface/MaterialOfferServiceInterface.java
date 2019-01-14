@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.app.trimia.model.serviceprovider.MaterialSpecializationCategory;
 
-public interface OfferServiceInterface {
+public interface MaterialOfferServiceInterface {
 
 	public List<MaterialSpecializationCategory> loadCategory();
 

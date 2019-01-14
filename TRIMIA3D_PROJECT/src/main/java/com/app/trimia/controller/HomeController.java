@@ -9,6 +9,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String dashboard()
 	{
+		System.out.println("priyanka task");
 		System.out.println("dashboard");
 		return "/serviceProviderPages/dashboard";
 	}

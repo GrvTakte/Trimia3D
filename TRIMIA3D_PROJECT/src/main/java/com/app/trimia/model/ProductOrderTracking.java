@@ -1,4 +1,4 @@
-package com.app.trimia.model.serviceprovider;
+package com.app.trimia.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.app.trimia.model.serviceprovider;
+package com.app.trimia.model;
 
 import java.util.ArrayList;
 import java.util.List;

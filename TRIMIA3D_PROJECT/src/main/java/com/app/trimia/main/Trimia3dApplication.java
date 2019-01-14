@@ -12,6 +12,7 @@ public class Trimia3dApplication {
 
 	public static void main(String[] args) {
 		System.out.println("start");
+		System.out.println("commit");
 		SpringApplication.run(Trimia3dApplication.class, args);
 		System.out.println("end");
 	}

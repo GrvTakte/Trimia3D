@@ -14,6 +14,8 @@ public class Trimia3dApplication {
 		System.out.println("start");
 		
 		SpringApplication.run(Trimia3dApplication.class, args);
+		
+		System.out.println("endp");
 		System.out.println("end");
 	}
 

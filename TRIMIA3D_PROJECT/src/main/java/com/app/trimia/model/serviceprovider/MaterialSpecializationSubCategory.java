@@ -7,6 +7,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.app.trimia.model.ProviderCompanyMaster;
+import com.app.trimia.model.UserOffer;
+
 @Entity
 @Table(name="materialSpecializationSubCategory")
 public class MaterialSpecializationSubCategory {

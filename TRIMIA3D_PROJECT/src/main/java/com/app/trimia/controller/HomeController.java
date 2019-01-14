@@ -2,6 +2,7 @@ package com.app.trimia.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.trimia.model.ProviderMaster;
@@ -50,10 +51,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/setting")
-	public String setting()
+	public String setting(ModelMap map)
 	{
 		System.out.println("setting");
 		ProviderMaster pm=setingsservicei.getProviderMaster();
+		map.addAttribute("providermaster", pm);
 		return "/serviceProviderPages/setting";
 	}
 	

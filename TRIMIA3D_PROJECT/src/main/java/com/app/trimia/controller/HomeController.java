@@ -1,10 +1,18 @@
 package com.app.trimia.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.app.trimia.model.ProviderMaster;
+import com.app.trimia.serviceinterface.SettingsServiceInterface;
+
 @Controller
 public class HomeController {
+	
+	@Autowired
+	SettingsServiceInterface setingsservicei;
+	
 
 	@RequestMapping("/")
 	public String dashboard()
@@ -47,6 +55,7 @@ public class HomeController {
 	public String setting()
 	{
 		System.out.println("setting");
+		ProviderMaster pm=setingsservicei.getProviderMaster();
 		return "/serviceProviderPages/setting";
 	}
 	

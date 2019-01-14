@@ -31,7 +31,5 @@ public class MaterialSpecializationCategory
 	}
 	public void setSpecializationCategoryColor(String specializationCategoryColor) {
 		this.specializationCategoryColor = specializationCategoryColor;
-	}
-	
-	
+	}	
 }

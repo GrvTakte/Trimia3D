@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.trimia.model.MaterialSpecializationCategory;
@@ -62,9 +63,17 @@ public class HomeController {
 	public String setting(ModelMap map)
 	{
 		System.out.println("setting");
+<<<<<<< HEAD
 		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("");
 		System.out.println(pm);
 		map.addAttribute("providermaster", pm);
+=======
+		String id="SP001";
+		ProviderMaster pm=settingsservicei.getProviderMaster(id);
+		
+		map.addAttribute("pm", pm);
+		System.out.println("executed");
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 		return "/serviceProviderPages/setting";
 	}
 	

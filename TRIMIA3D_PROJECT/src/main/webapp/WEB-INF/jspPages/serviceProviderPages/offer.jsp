@@ -130,23 +130,7 @@
 							  
 							</tr>
 						  </thead>
-						  <tbody>
-							<tr>
-							  <th scope="row"><input type="checkbox" value="productId"></th>
-							  <td>Gaurav Takte</td>
-							  <td>Team Leader</td>
-							</tr>
-							<tr>
-							  <th scope="row"><input type="checkbox" value="productId"></th>
-							  <td>Gaurav Wadekar</td>
-							  <td>Sub Team Leader</td>
-							  </tr>
-							<tr>
-							  <th scope="row"><input type="checkbox" value="productId"></th>
-							  <td>Sultan Mulani</td>
-							  <td>Team Member</td>
-							  </tr>
-						  </tbody>
+						  
 						</table>
                         </div>
                       </div>

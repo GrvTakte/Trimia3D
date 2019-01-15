@@ -9,6 +9,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.app.trimia.model.Address;
 import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.ProviderMaster;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
@@ -63,9 +64,14 @@ public class HomeController {
 	public String setting(ModelMap map)
 	{
 		System.out.println("setting");
-		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("");
-		System.out.println(pm);
-		map.addAttribute("providermaster", pm);
+		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("SP001");
+		Address add=pm.getAddress().get(0);
+		
+		//Address address=  (Address) pm.getAddress();
+		//Address address=addList.get(0);
+		map.addAttribute("pm", pm);
+		map.addAttribute("add", add);
+		//map.addAttribute("address", address);
 		return "/serviceProviderPages/setting";
 	}
 	

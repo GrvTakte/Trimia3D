@@ -84,13 +84,13 @@
                       <div class="profile_img">
                         <div id="crop-avatar">
                           <!-- Current avatar -->
-                          <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                          <img class="img-responsive avatar-view" src="${pageContext.request.contextPath }resources/portal/images/picture.jpg" alt="Avatar" title="Change the avatar">
                         </div>
                       </div>
-                      <h3>Samuel Doe</h3>
+                      <h3>${pm.getProviderMasterName()}</h3>
 
                       <ul class="list-unstyled user_data">
-                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> ${add.getCity() },${add.getState() },${add.getCountry() },
                         </li>
 
                         <li>
@@ -124,37 +124,37 @@
                       <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       <div id="graph_bar" style="width:100%; height:280px;">
                      		  <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="serviceProviderName">Name <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="providerMasterName">Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="serviceProviderName" required="required" class="form-control col-md-7 col-xs-12" value="${pm.getServiceProviderName()}"  readonly="readonly">
+                          <input type="text" id="providerMasterName" required="required" class="form-control col-md-7 col-xs-12" value="${pm.getProviderMasterName()}"  readonly="readonly">
                         </div>
                       </div>
                       
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="serviceProviderEmail">Email <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="providerMasterEmail">Email <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="serviceProviderEmail" name="serviceProviderEmail" required="required" class="form-control col-md-7 col-xs-12" value="${pm.getServiceProviderEmail()}">
+                          <input type="email" id="providerMasterEmail" name="providerMasterEmail" required="required" class="form-control col-md-7 col-xs-12" value="${pm.getProviderMasterEmail()}">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="serviceProviderContact" class="control-label col-md-3 col-sm-3 col-xs-12">Contact</label>
+                        <label for="providerMasterContact" class="control-label col-md-3 col-sm-3 col-xs-12">Contact</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="serviceProviderContact" class="form-control col-md-7 col-xs-12" type="number" name="serviceProviderContact" value="${pm.getServiceProviderContact()}">
+                          <input id="providerMasterContact" class="form-control col-md-7 col-xs-12" type="number" name="providerMasterContact" value="${pm.getProviderMasterContact()}">
                         </div>
                   </div>
             
                   <div class="form-group">
-                        <label for="serviceProviderPanCard" class="control-label col-md-3 col-sm-3 col-xs-12">Pan Card</label>
+                        <label for="providerMasterPanCard" class="control-label col-md-3 col-sm-3 col-xs-12">Pan Card</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="serviceProviderPanCard" class="form-control col-md-7 col-xs-12" type="text" name="serviceProviderPanCard" value="${pm.getServiceProviderPanCard()}">
+                          <input id="providerMasterPanCard" class="form-control col-md-7 col-xs-12" type="text" name="providerMasterPanCard" value="${pm.getProviderMasterPanCard()}">
                         </div>
                       </div>
 					        <div class="form-group">
-                        <label for="serviceProviderAadhaar" class="control-label col-md-3 col-sm-3 col-xs-12">Adhar Card</label>
+                        <label for="providerMasterAadhaar" class="control-label col-md-3 col-sm-3 col-xs-12">Adhar Card</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="serviceProviderAadhaar" class="form-control col-md-7 col-xs-12" type="number" name="serviceProviderAadhaar" value="${pm.getServiceProviderAadhaar()}">
+                          <input id="providerMasterAadhaar" class="form-control col-md-7 col-xs-12" type="number" name="providerMasterAadhaar" value="${pm.getProviderMasterAadhaar()}">
                         </div>
                       </div>
 					        
@@ -194,132 +194,7 @@
 
 
             
-            
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                  <div class="x_panel">
-                    
-                    <div class="x_title">
-                      <h2>Company Details<small>different form elements</small></h2>
-                      <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Settings 1</a>
-                            </li>
-                            <li><a href="#">Settings 2</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                      </ul>
-                      <div class="clearfix">
-  
-                      </div>
-                    </div>
-                   
-                    <div class="x_content">
-                      <br />
-                      <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-  
-                        <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="companyName">Company Name<span class="required">*</span>
-                          </label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" id="companyName" required="required" class="form-control col-md-7 col-xs-12">
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="companyAddress">Company Address <span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input type="text" id="companyAddress" required="required" class="form-control col-md-7 col-xs-12">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="companyPanCard">Company Pan Card <span class="required">*</span>
-                              </label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input type="text" id="companyPanCard" required="required" class="form-control col-md-7 col-xs-12">
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="companyGstNumber">Company GST Number <span class="required">*</span>
-                                </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input type="text" id="companyGstNumber" required="required" class="form-control col-md-7 col-xs-12">
-                                </div>
-                              </div>
-
-                        <div class="form-group">
-                          <label class="control-label col-md-3 col-sm-3 col-xs-12" for="companyEmail">Company Email <span class="required">*</span>
-                          </label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="email" id="companyEmail" name="companyEmail" required="required" class="form-control col-md-7 col-xs-12">
-                          </div>
-                        </div>
-                        
-                        <div class="form-group">
-                          <label for="contactDetail" class="control-label col-md-3 col-sm-3 col-xs-12">Contact</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="contactDetail" class="form-control col-md-7 col-xs-12" type="number" name="contactDetail">
-                          </div>
-                    </div>
-              
-                    <div class="form-group">
-                          <label for="logo" class="control-label col-md-3 col-sm-3 col-xs-12">logo</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="logo" class="form-control col-md-7 col-xs-12" type="image" name="logo">
-                          </div>
-                        </div>
-                    
-                        <div class="form-group">
-                          <label for="shopActLicenceNumber" class="control-label col-md-3 col-sm-3 col-xs-12">Shop Act Licence Number</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="shopActLicenceNumber" class="form-control col-md-7 col-xs-12" type="number" name="shopActLicenceNumber">
-                          </div>
-                        </div>
-                    
-                        <div class="form-group">
-                          <label for="companyWebSite" class="control-label col-md-3 col-sm-3 col-xs-12">Company Web Site</label>
-                          <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="companyWebSite" class="form-control col-md-7 col-xs-12" type="text" name="companyWebSite">
-                          </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="openingTime" class="control-label col-md-3 col-sm-3 col-xs-12">OpeningTime</label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              <input id="openingTime" class="form-control col-md-7 col-xs-12" type="text" name="openingTime">
-                            </div>
-                          </div>
-
-                          <div class="form-group">
-                              <label for="closingTime" class="control-label col-md-3 col-sm-3 col-xs-12">Closing Time</label>
-                              <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="closingTime" class="form-control col-md-7 col-xs-12" type="text" name="closingTime">
-                              </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="workingDays" class="control-label col-md-3 col-sm-3 col-xs-12">workingDays</label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                  <input id="workingDays" class="form-control col-md-7 col-xs-12" type="text" name="workingDays">
-                                </div>
-                              </div>
-                       
-                       
-  
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+       
   
 
             <div class="row">

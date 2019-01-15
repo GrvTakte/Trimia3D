@@ -1,19 +1,26 @@
 package com.app.trimia.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.ProviderMaster;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
+import com.app.trimia.serviceinterface.SpecializationCategoryServiceInterface;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
 	SettingsServiceInterface settingsservicei;
+	
+	@Autowired
+	SpecializationCategoryServiceInterface categoryService;
 	
 
 	@RequestMapping("/")
@@ -55,15 +62,18 @@ public class HomeController {
 	public String setting(ModelMap map)
 	{
 		System.out.println("setting");
-		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster();
+		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("");
 		System.out.println(pm);
 		map.addAttribute("providermaster", pm);
 		return "/serviceProviderPages/setting";
 	}
 	
 	@RequestMapping("/specialization")
-	public String specialization()
+	public String specialization(ModelMap map)
 	{
+		List<MaterialSpecializationCategory> list = categoryService.getAllCategory();
+		map.addAttribute("category", list);
+		System.out.println(list);
 		System.out.println("specialization");
 		return "/serviceProviderPages/specialization";
 	}

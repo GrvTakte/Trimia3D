@@ -4,6 +4,6 @@ import com.app.trimia.model.ProviderMaster;
 
 public interface SettingsServiceInterface {
 
-	public ProviderMaster getProviderMaster();
+	public ProviderMaster getProviderMaster(String id);
 
 }

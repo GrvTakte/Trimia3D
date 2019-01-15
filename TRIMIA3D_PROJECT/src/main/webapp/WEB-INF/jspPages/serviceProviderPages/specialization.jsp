@@ -1,5 +1,10 @@
+<%@page import="com.app.trimia.model.MaterialSpecializationCategory"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,6 +35,32 @@
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/portal/build/css/custom.min.css" rel="stylesheet">
+  
+  <script type="text/javascript">
+  
+  function validation(){
+	var name = document.getElementById("name").value;
+	var code = document.getElementById("code").value;
+	var description = document.getElementById("description").value;
+	var form = document.getElementById("specialization");
+	
+	if(name.length ==0){
+		alert("Please Enter Name");
+		form.name.focus();
+	}else if(code.length == 0){
+		alert("Please Enter Code")
+		form.code.focus();
+	}else if(description.length == 0){
+		alert("Please Enter Description")
+		form.description.focus();
+	}else{
+		form.action="";
+		form.submit();
+	}
+  }
+  
+  </script>
+  
   
   </head>
 
@@ -65,31 +96,57 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="specialization" data-parsley-validate class="form-horizontal form-label-left">
 
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productName">Product Name <span class="required">*</span>
+
+					<div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Category">Category <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="productName" required="required" class="form-control col-md-7 col-xs-12">
+                          <select  id="category" class="form-control col-md-7 col-xs-12">
+                          <option>Select Category</option>
+                          <c:forEach items="${category}" var="element">
+                          <option value="${element.getSpecializationCategoryId()}">${element.getSpecializationCategoryName()}</option>
+                          </c:forEach> 
+                          
+						  </select>
+                        </div>
+                      </div>	
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productName">Specialization Name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" required>
                         </div>
 				      </div>
 					  
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productCode">Product Code <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productCode">Specialization Code <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="productCode" name="productCode" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="code" name="productCode" required="required" class="form-control col-md-7 col-xs-12" required>
                         </div>
                       </div>
 					  	  
 					  
-					  
+					  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Category">Company list <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control col-md-7 col-xs-12">
+                          <option>Select Company</option>
+                          <option>Company One</option>
+                          <option>Company Two</option>
+                          <option>Company Three</option>
+                          </select>
+                        </div>
+                      </div>	
 					  
                       <div class="form-group">
-                        <label for="productDescription" class="control-label col-md-3 col-sm-3 col-xs-12">Product Description</label>
+                        <label for="productDescription" class="control-label col-md-3 col-sm-3 col-xs-12">Specialization Description</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="productDescription" class="form-control col-md-7 col-xs-12" type="text" name="productDescription">
+                          <textarea rows="3" id="description" class="form-control col-md-7 col-xs-12" required type="text" name="productDescription"></textarea>
                         </div>
                       </div>
 
@@ -108,7 +165,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="button">Cancel</button>
 						  <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="button" onclick="validation()" class="btn btn-success">Submit</button>
                         </div>
                       </div>
 

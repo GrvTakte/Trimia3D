@@ -15,16 +15,16 @@ import javax.persistence.Table;
 public class ProviderMaster {
 	//registration field
 	@Id
-	private String serviceProviderRegistrationId;
+	private String providerMasterId;
 	
-	private String serviceProviderName;
-	private String serviceProviderEmail;
-	private String serviceProviderContact;
+	private String providerMasterName;
+	private String providerMasterEmail;
+	private String providerMasterContact;
 
 	//update field
-	private String serviceProviderPanCard;
-	private String serviceProviderAadhaar;
-	private String serviceProviderProfileImage;
+	private String providerMasterPanCard;
+	private String providerMasterAadhaar;
+	private String providerMasterProfileImage;
 
 	@OneToOne(cascade=CascadeType.ALL)
 	private Login login;

@@ -1,5 +1,7 @@
 package com.app.trimia.serviceimpl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,9 @@ public class SettingsServiceImpl implements SettingsServiceInterface{
 	SettingsDaoInterface settingdaoi;
 
 	@Override
-	public ProviderMaster getProviderMaster() {
-		ProviderMaster pm=(ProviderMaster)settingdaoi.findAll();
-		return pm;
+	public ProviderMaster getProviderMaster(String id) {
+		ProviderMaster master = settingdaoi.findAllByProviderMasterId(id);
+		return master;
 	}
 
 }

@@ -12,12 +12,13 @@ import javax.persistence.Table;
 public class MaterialSpecializationSubCategory {
 	
 	@Id
-	private String productSpecializationId;
+	private String specializationSubCategoryId;
 	
-	private String productSpecializationName;
-	private String productSpecializationCode;
-	private String productSpecializationDescription;
-	private String productSpecializationImageUrl;
+	private String specializationSubCategoryName;
+	private String specializationSubCategoryCode;
+	private String specializationSubCategoryDescription;
+	private String specializationSubCategoryImageUrl;
+	private String specializationSubCategoryColor;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	private ProviderCompanyMaster providerCompanyMaster;
@@ -28,44 +29,53 @@ public class MaterialSpecializationSubCategory {
 	@OneToOne(cascade=CascadeType.ALL)
 	private UserOffer userOffer;
 
-	public String getProductSpecializationId() {
-		return productSpecializationId;
+	
+	public String getSpecializationSubCategoryId() {
+		return specializationSubCategoryId;
 	}
 
-	public void setProductSpecializationId(String productSpecializationId) {
-		this.productSpecializationId = productSpecializationId;
+	public void setSpecializationSubCategoryId(String specializationSubCategoryId) {
+		this.specializationSubCategoryId = specializationSubCategoryId;
 	}
 
-	public String getProductSpecializationName() {
-		return productSpecializationName;
+	public String getSpecializationSubCategoryName() {
+		return specializationSubCategoryName;
 	}
 
-	public void setProductSpecializationName(String productSpecializationName) {
-		this.productSpecializationName = productSpecializationName;
+	public void setSpecializationSubCategoryName(String specializationSubCategoryName) {
+		this.specializationSubCategoryName = specializationSubCategoryName;
 	}
 
-	public String getProductSpecializationCode() {
-		return productSpecializationCode;
+	public String getSpecializationSubCategoryCode() {
+		return specializationSubCategoryCode;
 	}
 
-	public void setProductSpecializationCode(String productSpecializationCode) {
-		this.productSpecializationCode = productSpecializationCode;
+	public void setSpecializationSubCategoryCode(String specializationSubCategoryCode) {
+		this.specializationSubCategoryCode = specializationSubCategoryCode;
 	}
 
-	public String getProductSpecializationDescription() {
-		return productSpecializationDescription;
+	public String getSpecializationSubCategoryDescription() {
+		return specializationSubCategoryDescription;
 	}
 
-	public void setProductSpecializationDescription(String productSpecializationDescription) {
-		this.productSpecializationDescription = productSpecializationDescription;
+	public void setSpecializationSubCategoryDescription(String specializationSubCategoryDescription) {
+		this.specializationSubCategoryDescription = specializationSubCategoryDescription;
 	}
 
-	public String getProductSpecializationImageUrl() {
-		return productSpecializationImageUrl;
+	public String getSpecializationSubCategoryImageUrl() {
+		return specializationSubCategoryImageUrl;
 	}
 
-	public void setProductSpecializationImageUrl(String productSpecializationImageUrl) {
-		this.productSpecializationImageUrl = productSpecializationImageUrl;
+	public void setSpecializationSubCategoryImageUrl(String specializationSubCategoryImageUrl) {
+		this.specializationSubCategoryImageUrl = specializationSubCategoryImageUrl;
+	}
+
+	public String getSpecializationSubCategoryColor() {
+		return specializationSubCategoryColor;
+	}
+
+	public void setSpecializationSubCategoryColor(String specializationSubCategoryColor) {
+		this.specializationSubCategoryColor = specializationSubCategoryColor;
 	}
 
 	public ProviderCompanyMaster getProviderCompanyMaster() {

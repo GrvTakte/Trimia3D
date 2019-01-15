@@ -5,14 +5,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="materialSpecializationCategory")
 public class MaterialSpecializationCategory 
 {
 	@Id
 	private String specializationCategoryId;
 	
 	private String specializationCategoryName;
-	private String specializationCategoryColor;
 	
 	public String getSpecializationCategoryId() {
 		return specializationCategoryId;
@@ -26,10 +24,4 @@ public class MaterialSpecializationCategory
 	public void setSpecializationCategoryName(String specializationCategoryName) {
 		this.specializationCategoryName = specializationCategoryName;
 	}
-	public String getSpecializationCategoryColor() {
-		return specializationCategoryColor;
-	}
-	public void setSpecializationCategoryColor(String specializationCategoryColor) {
-		this.specializationCategoryColor = specializationCategoryColor;
-	}	
 }

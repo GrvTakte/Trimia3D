@@ -18,6 +18,8 @@ public class ProductQuotation
    private String orderTime;
    private String address;
    private String selectMaterial;
+   
+   
 	
 	@OneToOne(cascade=CascadeType.ALL)
    private ProviderCompanyMaster companyMaster;

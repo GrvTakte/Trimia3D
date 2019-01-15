@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+  
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-    <title>Gentelella Alela! | </title>
+    <title>3D TRIMIA </title>
 
     <!-- Bootstrap -->
     <link href="${pageContext.request.contextPath}/resources/portal/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +31,13 @@
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/portal/build/css/custom.min.css" rel="stylesheet">
-  
+  	<script type="text/javascript">
+  	function editProfile() 
+  	{
+		alert("editProfile called");
+		document.getElementById('personel_details').readOnly = false;
+	}
+  	</script>
   </head>
 
   <body class="nav-md">
@@ -55,79 +62,130 @@
               </div>
             </div>
             
+            
+            
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                  
                   <div class="x_title">
-                    <h2>Personel Details<small>different form elements</small></h2>
+                    <h2>Service Provider Information</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
+                     
                       <li><a class="close-link"><i class="fa fa-close"></i></a>
                       </li>
                     </ul>
-                    <div class="clearfix">
+                    <div class="clearfix"></div>
+                  </div>
+                  
+                  <div class="x_content">
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                      <div class="profile_img">
+                        <div id="crop-avatar">
+                          <!-- Current avatar -->
+                          <img class="img-responsive avatar-view" src="images/picture.jpg" alt="Avatar" title="Change the avatar">
+                        </div>
+                      </div>
+                      <h3>Samuel Doe</h3>
+
+                      <ul class="list-unstyled user_data">
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                        </li>
+
+                        <li>
+                          <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                        </li>
+
+                        <li class="m-top-xs">
+                          <i class="fa fa-external-link user-profile-icon"></i>
+                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                        </li>
+                      </ul>
+
+                      <a class="btn btn-success" onclick="editProfile()">
+                      <i class="fa fa-edit m-right-xs" ></i>Edit Profile</a>
+                      <br />
+
+                   
 
                     </div>
-                  </div>
-                 
-				          <div class="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <div class="col-md-9 col-sm-9 col-xs-12">
 
-                      <div class="form-group">
+                      <div class="profile_title">
+                        <div class="col-md-6">
+                          <h2>Personel Details</h2>
+                        </div>
+                      </div>
+                      
+                      <!-- start of user-activity-graph -->
+                      <hr>
+                     <div id="personel_details">
+                      <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                      <div id="graph_bar" style="width:100%; height:280px;">
+                     		  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="serviceProviderName">Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="serviceProviderName" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="serviceProviderName" required="required" class="form-control col-md-7 col-xs-12" value="${pm.getServiceProviderName()}"  readonly="readonly">
                         </div>
                       </div>
+                      
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="serviceProviderEmail">Email <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="serviceProviderEmail" name="serviceProviderEmail" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="email" id="serviceProviderEmail" name="serviceProviderEmail" required="required" class="form-control col-md-7 col-xs-12" value="${pm.getServiceProviderEmail()}">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="serviceProviderContact" class="control-label col-md-3 col-sm-3 col-xs-12">Contact</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="serviceProviderContact" class="form-control col-md-7 col-xs-12" type="number" name="serviceProviderContact">
+                          <input id="serviceProviderContact" class="form-control col-md-7 col-xs-12" type="number" name="serviceProviderContact" value="${pm.getServiceProviderContact()}">
                         </div>
                   </div>
             
                   <div class="form-group">
                         <label for="serviceProviderPanCard" class="control-label col-md-3 col-sm-3 col-xs-12">Pan Card</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="serviceProviderPanCard" class="form-control col-md-7 col-xs-12" type="text" name="serviceProviderPanCard">
+                          <input id="serviceProviderPanCard" class="form-control col-md-7 col-xs-12" type="text" name="serviceProviderPanCard" value="${pm.getServiceProviderPanCard()}">
                         </div>
                       </div>
 					        <div class="form-group">
                         <label for="serviceProviderAadhaar" class="control-label col-md-3 col-sm-3 col-xs-12">Adhar Card</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="serviceProviderAadhaar" class="form-control col-md-7 col-xs-12" type="number" name="serviceProviderAadhaar">
+                          <input id="serviceProviderAadhaar" class="form-control col-md-7 col-xs-12" type="number" name="serviceProviderAadhaar" value="${pm.getServiceProviderAadhaar()}">
                         </div>
                       </div>
-					        <div class="form-group">
-                        <label for="serviceProviderProfileImage" class="control-label col-md-3 col-sm-3 col-xs-12">Profile Image</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="serviceProviderProfileImage" class="form-control col-md-7 col-xs-12" type="image" name="serviceProviderProfileImage">
-                        </div>
+					        
+                      </form>
                       </div>
-                     
-                     
+                      </div>
+                      <!-- end of user-activity-graph -->
 
-                    </form>
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                       <!--  <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                           <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projects Worked on</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                          </li> 
+                        </ul> -->
+                        <div id="myTabContent" class="tab-content">
+                          <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+
+                           
+                          </div>
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+                        
+
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -135,6 +193,8 @@
 
 
 
+            
+            
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                   <div class="x_panel">
@@ -394,15 +454,11 @@
          <div class="ln_solid"></div>
          <div class="form-group col-md-8" >
          <div class="row">
-         				 <div class="col-md-8 col-sm-8 col-xs-12 col-md-offset-3">
+         				 <div class="col-md-6 col-sm-6 col-xs-4 col-md-offset-3">
                                 <button type="submit" class="btn btn-success">Membership</button>
                               <button class="btn btn-primary" type="reset">Delete Account</button>
                             </div>
          				
-                      <!-- <div class="col-md-4 col-sm-4 col-xs-12 col-md-offset-5">
-                        <button type="submit" class="btn btn-success">Membership</button>
-                        <button class="btn btn-primary" type="button">Delete Account</button>
-                      </div> -->
            	</div>
          </div>
                     

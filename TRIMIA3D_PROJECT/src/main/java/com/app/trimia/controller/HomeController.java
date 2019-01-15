@@ -1,9 +1,12 @@
 package com.app.trimia.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.trimia.model.ProviderMaster;
@@ -55,9 +58,11 @@ public class HomeController {
 	public String setting(ModelMap map)
 	{
 		System.out.println("setting");
-		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster();
-		System.out.println(pm);
-		map.addAttribute("providermaster", pm);
+		String id="SP001";
+		ProviderMaster pm=settingsservicei.getProviderMaster(id);
+		
+		map.addAttribute("pm", pm);
+		System.out.println("executed");
 		return "/serviceProviderPages/setting";
 	}
 	

@@ -53,9 +53,12 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/offer")
-	public String offer()
+	public String offer(ModelMap map)
 	{
 		System.out.println("offer");
+		List<MaterialSpecializationCategory> list = categoryService.getAllCategory();
+		map.addAttribute("category", list);
+		System.out.println(list);		
 		return "/serviceProviderPages/offer";
 	}
 	

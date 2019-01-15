@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -30,6 +32,22 @@
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/portal/build/css/custom.min.css" rel="stylesheet">
+  
+  <script type="text/javascript">
+  
+  function loadSubCategory(id){
+	  alert(id);
+	  var req = new XMLHttpRequest();
+	  req.open("GET", "subCategory?id="+id, true);
+	  req.send();
+	  
+	  req.onreadystatechange=function(){
+		  if(req.readyState==4 && req.status==200){
+			  alert(req.responseText)
+		  }
+	  }
+  }
+  </script>
   
   </head>
 
@@ -81,12 +99,12 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Category">Category <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select  id="category"  class="form-control col-md-7 col-xs-12">
-						  <option>Please Select Category</option>
-						  <option>Plastic</option>
-						  <option>Metal</option>
-						  <option>Rubber</option>
-						  <option>Sillicon</option>
+                          <select  id="category" onchange="loadSubCategory(this.value)"  class="form-control col-md-7 col-xs-12">
+						  <option>Select Category</option>
+                          <c:forEach items="${category}" var="element">
+                          <option value="${element.getSpecializationCategoryId()}">${element.getSpecializationCategoryName()}</option>
+                          </c:forEach> 
+                          
 						  </select>
                         </div>
                       </div>

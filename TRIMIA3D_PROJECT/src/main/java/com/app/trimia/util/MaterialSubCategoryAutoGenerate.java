@@ -7,7 +7,7 @@ public class MaterialSubCategoryAutoGenerate {
 	@Autowired
 	
 	
-	public static String generateId() {
+	public static String generateId(String className) {
 	
 		return "";	
 	}

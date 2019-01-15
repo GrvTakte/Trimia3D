@@ -44,60 +44,62 @@ public class ProviderMaster {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
 	private List<CompanyMasterClient> serviceProviderClient = new ArrayList<CompanyMasterClient>();
 
-	public String getServiceProviderRegistrationId() {
-		return serviceProviderRegistrationId;
+
+
+	public String getProviderMasterId() {
+		return providerMasterId;
 	}
 
-	public void setServiceProviderRegistrationId(String serviceProviderRegistrationId) {
-		this.serviceProviderRegistrationId = serviceProviderRegistrationId;
+	public void setProviderMasterId(String providerMasterId) {
+		this.providerMasterId = providerMasterId;
 	}
 
-	public String getServiceProviderName() {
-		return serviceProviderName;
+	public String getProviderMasterName() {
+		return providerMasterName;
 	}
 
-	public void setServiceProviderName(String serviceProviderName) {
-		this.serviceProviderName = serviceProviderName;
+	public void setProviderMasterName(String providerMasterName) {
+		this.providerMasterName = providerMasterName;
 	}
 
-	public String getServiceProviderEmail() {
-		return serviceProviderEmail;
+	public String getProviderMasterEmail() {
+		return providerMasterEmail;
 	}
 
-	public void setServiceProviderEmail(String serviceProviderEmail) {
-		this.serviceProviderEmail = serviceProviderEmail;
+	public void setProviderMasterEmail(String providerMasterEmail) {
+		this.providerMasterEmail = providerMasterEmail;
 	}
 
-	public String getServiceProviderContact() {
-		return serviceProviderContact;
+	public String getProviderMasterContact() {
+		return providerMasterContact;
 	}
 
-	public void setServiceProviderContact(String serviceProviderContact) {
-		this.serviceProviderContact = serviceProviderContact;
+	public void setProviderMasterContact(String providerMasterContact) {
+		this.providerMasterContact = providerMasterContact;
 	}
 
-	public String getServiceProviderPanCard() {
-		return serviceProviderPanCard;
+	public String getProviderMasterPanCard() {
+		return providerMasterPanCard;
 	}
 
-	public void setServiceProviderPanCard(String serviceProviderPanCard) {
-		this.serviceProviderPanCard = serviceProviderPanCard;
+	public void setProviderMasterPanCard(String providerMasterPanCard) {
+		this.providerMasterPanCard = providerMasterPanCard;
 	}
 
-	public String getServiceProviderAadhaar() {
-		return serviceProviderAadhaar;
+	public String getProviderMasterAadhaar() {
+		return providerMasterAadhaar;
 	}
 
-	public void setServiceProviderAadhaar(String serviceProviderAadhaar) {
-		this.serviceProviderAadhaar = serviceProviderAadhaar;
+	public void setProviderMasterAadhaar(String providerMasterAadhaar) {
+		this.providerMasterAadhaar = providerMasterAadhaar;
 	}
 
-	public String getServiceProviderProfileImage() {
-		return serviceProviderProfileImage;
+	public String getProviderMasterProfileImage() {
+		return providerMasterProfileImage;
 	}
 
-	public void setServiceProviderProfileImage(String serviceProviderProfileImage) {
-		this.serviceProviderProfileImage = serviceProviderProfileImage;
+	public void setProviderMasterProfileImage(String providerMasterProfileImage) {
+		this.providerMasterProfileImage = providerMasterProfileImage;
 	}
 
 	public Login getLogin() {

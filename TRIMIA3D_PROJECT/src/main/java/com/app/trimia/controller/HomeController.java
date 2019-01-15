@@ -63,17 +63,9 @@ public class HomeController {
 	public String setting(ModelMap map)
 	{
 		System.out.println("setting");
-<<<<<<< HEAD
 		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("");
 		System.out.println(pm);
 		map.addAttribute("providermaster", pm);
-=======
-		String id="SP001";
-		ProviderMaster pm=settingsservicei.getProviderMaster(id);
-		
-		map.addAttribute("pm", pm);
-		System.out.println("executed");
->>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 		return "/serviceProviderPages/setting";
 	}
 	

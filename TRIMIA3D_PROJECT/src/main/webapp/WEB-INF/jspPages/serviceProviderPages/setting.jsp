@@ -35,7 +35,7 @@
   	function editProfile() 
   	{
 		alert("editProfile called");
-		document.getElementById('personel_details').readOnly = false;
+		document.getElementById('serviceProviderName').readOnly = false;
 	}
   	</script>
   </head>

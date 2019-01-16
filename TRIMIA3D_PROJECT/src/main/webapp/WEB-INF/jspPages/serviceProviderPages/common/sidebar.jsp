@@ -38,7 +38,7 @@
                   </li>
 				  <li><a><i class="fa fa-usd"></i>Company<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="company">Add Company</a></li>
+                      <li><a href="addCompany">Add Company</a></li>
                       <li><a href="viewCompany">View Companies</a></li>
                     </ul>
                   </li>

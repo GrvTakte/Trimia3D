@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.trimia.model.Address;
+import com.app.trimia.model.Login;
 import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.ProviderMaster;
+import com.app.trimia.serviceinterface.ProviderMasterServiceInterface;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 import com.app.trimia.serviceinterface.SpecializationCategoryServiceInterface;
 
@@ -23,6 +25,9 @@ public class HomeController {
 	
 	@Autowired
 	SpecializationCategoryServiceInterface categoryService;
+	
+	@Autowired
+	ProviderMasterServiceInterface masterService;
 	
 
 	@RequestMapping("/")
@@ -68,12 +73,12 @@ public class HomeController {
 	{
 		System.out.println("setting");
 		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("SP001");
-		Address add=pm.getAddress().get(0);
-		
+		System.out.println(pm);
+		//Address add = pm.getAddress().get(arg0)
 		//Address address=  (Address) pm.getAddress();
 		//Address address=addList.get(0);
 		map.addAttribute("pm", pm);
-		map.addAttribute("add", add);
+		//map.addAttribute("add", add);
 		//map.addAttribute("address", address);
 		return "/serviceProviderPages/setting";
 	}
@@ -142,5 +147,21 @@ public class HomeController {
 	{
 		System.out.println("AdminPaymentStatus");
 		return "/serviceProviderPages/AdminPaymentStatus";
+	}
+	
+	@RequestMapping("/register")
+	public String displayRegister() {
+		return "/serviceProviderPages/register";
+	}
+	
+	@RequestMapping("/register1")
+	public String registerProvider(@ModelAttribute ProviderMaster master, @ModelAttribute Login login) {
+		login.setEmail(master.getProviderMasterEmail());
+		login.setLoginId("LG002");
+		master.setLogin(login);
+		master.setProviderMasterId("SP002");
+		System.out.println(login.getEmail()+" "+login.getPassword());
+		masterService.registerProvider(master);
+		return "/serviceProviderPages/login";
 	}
 }

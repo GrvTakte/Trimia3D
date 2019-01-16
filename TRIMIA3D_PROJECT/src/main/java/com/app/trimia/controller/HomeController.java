@@ -133,11 +133,18 @@ public class HomeController {
 		return "/serviceProviderPages/feedback";
 	}
 	
-	@RequestMapping("/companies")
+	@RequestMapping("/addCompany")
 	public String companies()
 	{
-		System.out.println("companies");
-		return "/serviceProviderPages/company";
+		System.out.println("add company");
+		return "/serviceProviderPages/addCompany";
+	}
+	
+	@RequestMapping("/viewCompany")
+	public String viewcompanies()
+	{
+		System.out.println("view company");
+		return "/serviceProviderPages/viewCompany";
 	}
 	
 	@RequestMapping("/AdminPaymentStatus")

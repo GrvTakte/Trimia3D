@@ -36,7 +36,12 @@
                       <li><a href="fixed_footer.html">Product Payment</a></li>
                     </ul> -->
                   </li>
-				  <li><a href="companies"><i class="fa fa-briefcase"></i> Companies</a></li>
+				  <li><a><i class="fa fa-usd"></i>Company<span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="company">Add Company</a></li>
+                      <li><a href="viewCompany">View Companies</a></li>
+                    </ul>
+                  </li>
 				  <li><a href="feedback"><i class="fa fa-comment"></i> Feedback</a></li>
 				  
                   <!-- <li><a href="productQA"><i class="fa fa-table"></i> Product QA</a></li>

@@ -1,9 +1,17 @@
 Manifest-Version: 1.0
 Implementation-Title: TRIMIA3D_PROJECT
 Implementation-Version: 0.0.1-SNAPSHOT
+<<<<<<< HEAD
 Built-By: admin
+=======
+Built-By: Gaurav
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 Implementation-Vendor-Id: com.app.trimia
+<<<<<<< HEAD
 Build-Jdk: 1.8.0_161
+=======
+Build-Jdk: 1.8.0_144
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/TRIMIA3D_PROJECT
 Created-By: Maven Integration for Eclipse

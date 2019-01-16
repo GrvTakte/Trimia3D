@@ -29,6 +29,8 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
 	<classpathentry kind="lib" path="C:/Users/Gaurav/Downloads/Java Jar Files/jstl-1.2.jar"/>
 	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
 		<attributes>
@@ -36,5 +38,6 @@
 			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

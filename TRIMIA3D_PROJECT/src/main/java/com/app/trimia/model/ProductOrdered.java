@@ -3,6 +3,7 @@ package com.app.trimia.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -20,6 +21,7 @@ public class ProductOrdered {
 	private String completionDate;
 	
 	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="materialSpecializationSubCategory")
 	private MaterialSpecializationSubCategory materialSpecializationSubCategory;
 
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -29,13 +31,15 @@ public class ProductOrdered {
 	private UserRegistration userRegistration;*/
 
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="productOrdered")
-	private CompanyMasterFeedback companyMasterFeedback;
+	private Feedback feedback;
 
 	//vishal
 	//private OrderCommission orderCommission;
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="productOrdered")
 	private ProductOrderTracking productOrderTracking;
+	
+	
 
 	public String getOrderId() {
 		return orderId;
@@ -93,12 +97,12 @@ public class ProductOrdered {
 		this.providerCompanyMaster = providerCompanyMaster;
 	}
 
-	public CompanyMasterFeedback getCompanyMasterFeedback() {
-		return companyMasterFeedback;
+	public Feedback getFeedback() {
+		return feedback;
 	}
 
-	public void setCompanyMasterFeedback(CompanyMasterFeedback companyMasterFeedback) {
-		this.companyMasterFeedback = companyMasterFeedback;
+	public void setFeedback(Feedback feedback) {
+		this.feedback = feedback;
 	}
 
 	public ProductOrderTracking getProductOrderTracking() {

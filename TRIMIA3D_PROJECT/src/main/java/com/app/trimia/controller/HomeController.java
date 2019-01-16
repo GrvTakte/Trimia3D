@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.trimia.model.Address;
+import com.app.trimia.model.Feedback;
 import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.ProviderMaster;
+import com.app.trimia.serviceinterface.FeedbackInterface;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 import com.app.trimia.serviceinterface.SpecializationCategoryServiceInterface;
 
@@ -24,7 +26,9 @@ public class HomeController {
 	@Autowired
 	SpecializationCategoryServiceInterface categoryService;
 	
-
+	@Autowired
+	FeedbackInterface feedbackservice;
+	
 	@RequestMapping("/")
 	public String dashboard()
 	{
@@ -43,6 +47,7 @@ public class HomeController {
 	public String client()
 	{
 		System.out.println("client");
+		
 		return "/serviceProviderPages/client";
 	}
 	
@@ -116,10 +121,15 @@ public class HomeController {
 		return "/serviceProviderPages/material";
 	}
 	
+	//-------Author: Priyanka  Date:16/1/18
 	@RequestMapping("/feedback")
-	public String feedback()
+	public String feedback(ModelMap map)
 	{
 		System.out.println("feedback");
+		List<Feedback> flist=feedbackservice.getFeedback();
+		map.addAttribute("feedback", flist);
+		System.out.println("in controller "+flist);
+		
 		return "/serviceProviderPages/feedback";
 	}
 	
@@ -136,4 +146,6 @@ public class HomeController {
 		System.out.println("AdminPaymentStatus");
 		return "/serviceProviderPages/AdminPaymentStatus";
 	}
+	
+	
 }

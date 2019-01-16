@@ -1,5 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page import="com.app.trimia.model.Feedback"%>
+<%@page import="java.util.List"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+     <%@page errorPage="error.jsp" %>
+      
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -74,17 +78,15 @@
 
              
 
-              <div class="clearfix"></div>
+            <!--   <div class="clearfix"></div> -->
 
               
 
 
-              <div class="col-md-12 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                 
+              
                  
 
-              <div class="clearfix"></div>
+             
 
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -92,19 +94,17 @@
 
                   <div class="x_content">
 
-                    <p> View your feedback from Users</p>
-
-                    <div class="table-responsive">
+                   
+                   <!--  <div class="table-responsive"> -->
                       <table class="table table-striped jambo_table bulk_action">
                         <thead>
                           <tr class="headings">
                         
-                            <th class="column-title">Sr. No. </th>
-                            <th class="column-title">Product Order Id </th>
+                            <th class="column-title">Product Order Id</th>
+                            
                             <th class="column-title">Product Specialization </th>
                             <th class="column-title">Company Name </th>
-                            <th class="column-title">Date</th>
-                            <th class="column-title">Time </th>
+                            <th class="column-title">Date & Time</th>                        
                             <th class="column-title">Review </th>
                             <th class="column-title">Rating </th>
                             
@@ -112,39 +112,37 @@
                         </thead>
 
                         <tbody>
-                          <tr class="even pointer">
-                            <td>1</td>
-                            <td>1123</td>
-                            <td>Plasic SA</td>
-                            <td>Nelons</td>
-                            <td>12/01/18</td>
-                            <td>02:00</td>
-                            <td>Good quality</td>
+                       <%List<Feedback> flist=(List<Feedback>)request.getAttribute("feedback");
+                       		for(Feedback f:flist)
+                       		{%>
+                         <tr class="even pointer">
+                            <td><%=f.getProductOrdered().getOrderId() %></td>
+                           
+                            <td><%=f.getProductOrdered().getMaterialSpecializationSubCategory().getSpecializationSubCategoryName()%></td>
+                            <td><%=f.getProductOrdered().getProviderCompanyMaster().getServiceProviderCompanyName() %></td>
+                            <td><%=f.getDateAndTime() %></td>                      
+                            <td><%=f.getUserReview() %></td>              
+                           
                             <td>
-                              <span class="fa fa-star checked"></span>
-                              <span class="fa fa-star checked"></span>
-                              <span class="fa fa-star checked"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
+                            	 	 <%
+                            	  	int rating = Integer.parseInt(f.getUserRating());
+                            	 	
+                            		 for(int i=1;i<=rating;i++)
+                            		
+                            		{%>
+                            			 <span class="fa fa-star checked"></span>
+                            		<%} %>
+                            		
+                            		<% 
+                            		 for(int j=1;j<=5-rating;j++)
+                            		 {
+                            		%>
+                            			 <span class="fa fa-star"></span>
+                            		<%} %>
+                            	  
                             </td>
-                          </tr>
-
-                          <tr class="even pointer">
-                              <td>2</td>
-                              <td>1123</td>
-                              <td>Plasic SA</td>
-                              <td>Nelons</td>
-                              <td>12/01/18</td>
-                              <td>02:00</td>
-                              <td>Good quality</td>
-                              <td>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                              </td>
-                            </tr>
+                          </tr> 
+                     	<%} %>
                           
                          
 
@@ -152,14 +150,11 @@
                          
                         </tbody>
                       </table>
-                    </div>
-							
-						
+               
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+          
         </div>
         <!-- /page content -->
 

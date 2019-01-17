@@ -47,8 +47,5 @@ public class Feedback
 	}
 	public void setProductOrdered(ProductOrdered productOrdered) {
 		this.productOrdered = productOrdered;
-	}
-	 
-	 
-	 
+	} 
 }

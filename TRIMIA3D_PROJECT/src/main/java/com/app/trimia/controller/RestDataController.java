@@ -1,6 +1,13 @@
 package com.app.trimia.controller;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +27,7 @@ import com.app.trimia.serviceinterface.CompanyMasterClientInterface;
 import com.app.trimia.serviceinterface.SpecializationSubCategoryServiceInterface;
 
 @RestController
-public class RestDataController {	
+public class RestDataController {
 	
 	@Autowired
 	SpecializationSubCategoryServiceInterface subCatService;
@@ -38,25 +45,29 @@ public class RestDataController {
 		return new ResponseEntity<List<MaterialSpecializationSubCategory>>(list,HttpStatus.OK);
 	}
 	
-	@RequestMapping
+	@RequestMapping("/addClient")
 	public ResponseEntity<CompanyMasterClient> addClient(@RequestParam String clientId, @RequestParam String clientName)
 	{
 		
 		System.out.println("in add client");
+		System.out.println(clientId+" "+clientName);
 		CompanyMasterClient client=new CompanyMasterClient();
-		client.setClientId(clientId);
-		client.setClientName(clientName);
+		client.setCompanyMasterClientId(clientId);
+		client.setCompanyMasterClientName(clientName);
 		clientService.addClient(client);
 		return new ResponseEntity<CompanyMasterClient>(HttpStatus.OK);
-		
 	}
 	
-	@RequestMapping 
+	@RequestMapping("/uploadFile")
+	public ResponseEntity<String> uploadFile(HttpServletResponse response, HttpServletRequest request){
+		System.out.println("upload File Started");
+		return new ResponseEntity<String>("File Uploaded Successfully",HttpStatus.OK);
+	}
+	
+	@RequestMapping("/viewClient")
 	public ResponseEntity<List<CompanyMasterClient>> viewAllClient(){
 		System.out.println(" in view clint");
 		List<CompanyMasterClient> client_list=clientService.viewAllClient();
-		
+		return new ResponseEntity<List<CompanyMasterClient>>(client_list,HttpStatus.OK);
 	}
-
-
 }

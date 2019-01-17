@@ -91,7 +91,7 @@
                   
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company-name">Company Name <span class="required">*</span>
@@ -157,6 +157,7 @@
                           </div>
                           <div class="col-md-6">
                             <img id="blah" src="#" height="75" width="50" alt="your image" />
+                            <a href="${pageContext.request.contextPath}/uploadFile">Upload</a>
                           </div>
                         </div>
                       </div>

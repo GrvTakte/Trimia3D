@@ -37,9 +37,17 @@ public class ProviderMaster {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
 	private List<ProviderCompanyMaster> serviceProviderCompanyDetails=new ArrayList<ProviderCompanyMaster>();
 	
-	//update field
-	/*@OneToOne(cascade=CascadeType.ALL)
-	private Membership memberShipId;*/
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="providerMaster")
+	private Membership membership;
+
+
+	public Membership getMembership() {
+		return membership;
+	}
+
+	public void setMembership(Membership membership) {
+		this.membership = membership;
+	}
 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
 	private List<CompanyMasterClient> serviceProviderClient = new ArrayList<CompanyMasterClient>();

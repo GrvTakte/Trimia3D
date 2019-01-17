@@ -36,6 +36,7 @@ public class HomeController {
 	@Autowired
 	ProviderMasterServiceInterface masterService;
 
+	@Autowired
 	FeedbackInterface feedbackservice;
 
 	@RequestMapping("/")
@@ -171,9 +172,8 @@ public class HomeController {
 	@RequestMapping("/register1")
 	public String registerProvider(@ModelAttribute ProviderMaster master, @ModelAttribute Login login) {
 		login.setEmail(master.getProviderMasterEmail());
-		login.setLoginId("LG002");
 		master.setLogin(login);
-		master.setProviderMasterId("SP002");
+		//master.setProviderMasterId("SP002");
 		System.out.println(login.getEmail()+" "+login.getPassword());
 		masterService.registerProvider(master);
 		return "/serviceProviderPages/login";

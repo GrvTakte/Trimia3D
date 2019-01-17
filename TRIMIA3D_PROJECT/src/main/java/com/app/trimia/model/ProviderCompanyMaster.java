@@ -15,21 +15,21 @@ import javax.persistence.Table;
 public class ProviderCompanyMaster { 
 
 	@Id
-	private String serviceProviderCompanyId;
+	private String providerCompanyMasterId;
 	
-	private String serviceProviderCompanyName;
-	private String serviceProviderCompanyAddress;
-	private String serviceProviderCompanyPanCard;
-	private String serviceProviderCompanyGstNumber;
-	private String serviceProviderCompanyEmail;
-	private String serviceProviderCompanyContact;
-	private String serviceProviderCompanyLogo;
-	private String serviceProviderCompanyShopActLicenceNumber;
-	private String serviceProviderCompanyWebSite;
-	private String serviceProviderCompanyOpeningTime;
-	private String serviceProviderCompanyClosingTime;
-	private String serviceProviderCompanyWorkingDays;
-	private String quotationResponseMessge;
+	private String providerCompanyMasterName;
+	private String providerCompanyMasterAddress;
+	private String providerCompanyMasterPanCard;
+	private String providerCompanyMasterGstNumber;
+	private String providerCompanyMasterEmail;
+	private String providerCompanyMasterContact;
+	private String providerCompanyMasterLogo;
+	private String providerCompanyMasterShopActLicenceNumber;
+	private String providerCompanyMasterWebSite;
+	private String providerCompanyMasterOpeningTime;
+	private String providerCompanyMasterClosingTime;
+	private String providerCompanyMasterWorkingDays;
+	private String quotationResponseMessage;
 	
 
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -43,116 +43,116 @@ public class ProviderCompanyMaster {
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerCompanyMaster")
 	private List<ProductOrdered> productOrdered = new ArrayList<ProductOrdered>();
 
-	public String getServiceProviderCompanyId() {
-		return serviceProviderCompanyId;
+	public String getProviderCompanyMasterId() {
+		return providerCompanyMasterId;
 	}
 
-	public void setServiceProviderCompanyId(String serviceProviderCompanyId) {
-		this.serviceProviderCompanyId = serviceProviderCompanyId;
+	public void setProviderCompanyMasterId(String providerCompanyMasterId) {
+		this.providerCompanyMasterId = providerCompanyMasterId;
 	}
 
-	public String getServiceProviderCompanyName() {
-		return serviceProviderCompanyName;
+	public String getProviderCompanyMasterName() {
+		return providerCompanyMasterName;
 	}
 
-	public void setServiceProviderCompanyName(String serviceProviderCompanyName) {
-		this.serviceProviderCompanyName = serviceProviderCompanyName;
+	public void setProviderCompanyMasterName(String providerCompanyMasterName) {
+		this.providerCompanyMasterName = providerCompanyMasterName;
 	}
 
-	public String getServiceProviderCompanyAddress() {
-		return serviceProviderCompanyAddress;
+	public String getProviderCompanyMasterAddress() {
+		return providerCompanyMasterAddress;
 	}
 
-	public void setServiceProviderCompanyAddress(String serviceProviderCompanyAddress) {
-		this.serviceProviderCompanyAddress = serviceProviderCompanyAddress;
+	public void setProviderCompanyMasterAddress(String providerCompanyMasterAddress) {
+		this.providerCompanyMasterAddress = providerCompanyMasterAddress;
 	}
 
-	public String getServiceProviderCompanyPanCard() {
-		return serviceProviderCompanyPanCard;
+	public String getProviderCompanyMasterPanCard() {
+		return providerCompanyMasterPanCard;
 	}
 
-	public void setServiceProviderCompanyPanCard(String serviceProviderCompanyPanCard) {
-		this.serviceProviderCompanyPanCard = serviceProviderCompanyPanCard;
+	public void setProviderCompanyMasterPanCard(String providerCompanyMasterPanCard) {
+		this.providerCompanyMasterPanCard = providerCompanyMasterPanCard;
 	}
 
-	public String getServiceProviderCompanyGstNumber() {
-		return serviceProviderCompanyGstNumber;
+	public String getProviderCompanyMasterGstNumber() {
+		return providerCompanyMasterGstNumber;
 	}
 
-	public void setServiceProviderCompanyGstNumber(String serviceProviderCompanyGstNumber) {
-		this.serviceProviderCompanyGstNumber = serviceProviderCompanyGstNumber;
+	public void setProviderCompanyMasterGstNumber(String providerCompanyMasterGstNumber) {
+		this.providerCompanyMasterGstNumber = providerCompanyMasterGstNumber;
 	}
 
-	public String getServiceProviderCompanyEmail() {
-		return serviceProviderCompanyEmail;
+	public String getProviderCompanyMasterEmail() {
+		return providerCompanyMasterEmail;
 	}
 
-	public void setServiceProviderCompanyEmail(String serviceProviderCompanyEmail) {
-		this.serviceProviderCompanyEmail = serviceProviderCompanyEmail;
+	public void setProviderCompanyMasterEmail(String providerCompanyMasterEmail) {
+		this.providerCompanyMasterEmail = providerCompanyMasterEmail;
 	}
 
-	public String getServiceProviderCompanyContact() {
-		return serviceProviderCompanyContact;
+	public String getProviderCompanyMasterContact() {
+		return providerCompanyMasterContact;
 	}
 
-	public void setServiceProviderCompanyContact(String serviceProviderCompanyContact) {
-		this.serviceProviderCompanyContact = serviceProviderCompanyContact;
+	public void setProviderCompanyMasterContact(String providerCompanyMasterContact) {
+		this.providerCompanyMasterContact = providerCompanyMasterContact;
 	}
 
-	public String getServiceProviderCompanyLogo() {
-		return serviceProviderCompanyLogo;
+	public String getProviderCompanyMasterLogo() {
+		return providerCompanyMasterLogo;
 	}
 
-	public void setServiceProviderCompanyLogo(String serviceProviderCompanyLogo) {
-		this.serviceProviderCompanyLogo = serviceProviderCompanyLogo;
+	public void setProviderCompanyMasterLogo(String providerCompanyMasterLogo) {
+		this.providerCompanyMasterLogo = providerCompanyMasterLogo;
 	}
 
-	public String getServiceProviderCompanyShopActLicenceNumber() {
-		return serviceProviderCompanyShopActLicenceNumber;
+	public String getProviderCompanyMasterShopActLicenceNumber() {
+		return providerCompanyMasterShopActLicenceNumber;
 	}
 
-	public void setServiceProviderCompanyShopActLicenceNumber(String serviceProviderCompanyShopActLicenceNumber) {
-		this.serviceProviderCompanyShopActLicenceNumber = serviceProviderCompanyShopActLicenceNumber;
+	public void setProviderCompanyMasterShopActLicenceNumber(String providerCompanyMasterShopActLicenceNumber) {
+		this.providerCompanyMasterShopActLicenceNumber = providerCompanyMasterShopActLicenceNumber;
 	}
 
-	public String getServiceProviderCompanyWebSite() {
-		return serviceProviderCompanyWebSite;
+	public String getProviderCompanyMasterWebSite() {
+		return providerCompanyMasterWebSite;
 	}
 
-	public void setServiceProviderCompanyWebSite(String serviceProviderCompanyWebSite) {
-		this.serviceProviderCompanyWebSite = serviceProviderCompanyWebSite;
+	public void setProviderCompanyMasterWebSite(String providerCompanyMasterWebSite) {
+		this.providerCompanyMasterWebSite = providerCompanyMasterWebSite;
 	}
 
-	public String getServiceProviderCompanyOpeningTime() {
-		return serviceProviderCompanyOpeningTime;
+	public String getProviderCompanyMasterOpeningTime() {
+		return providerCompanyMasterOpeningTime;
 	}
 
-	public void setServiceProviderCompanyOpeningTime(String serviceProviderCompanyOpeningTime) {
-		this.serviceProviderCompanyOpeningTime = serviceProviderCompanyOpeningTime;
+	public void setProviderCompanyMasterOpeningTime(String providerCompanyMasterOpeningTime) {
+		this.providerCompanyMasterOpeningTime = providerCompanyMasterOpeningTime;
 	}
 
-	public String getServiceProviderCompanyClosingTime() {
-		return serviceProviderCompanyClosingTime;
+	public String getProviderCompanyMasterClosingTime() {
+		return providerCompanyMasterClosingTime;
 	}
 
-	public void setServiceProviderCompanyClosingTime(String serviceProviderCompanyClosingTime) {
-		this.serviceProviderCompanyClosingTime = serviceProviderCompanyClosingTime;
+	public void setProviderCompanyMasterClosingTime(String providerCompanyMasterClosingTime) {
+		this.providerCompanyMasterClosingTime = providerCompanyMasterClosingTime;
 	}
 
-	public String getServiceProviderCompanyWorkingDays() {
-		return serviceProviderCompanyWorkingDays;
+	public String getProviderCompanyMasterWorkingDays() {
+		return providerCompanyMasterWorkingDays;
 	}
 
-	public void setServiceProviderCompanyWorkingDays(String serviceProviderCompanyWorkingDays) {
-		this.serviceProviderCompanyWorkingDays = serviceProviderCompanyWorkingDays;
+	public void setProviderCompanyMasterWorkingDays(String providerCompanyMasterWorkingDays) {
+		this.providerCompanyMasterWorkingDays = providerCompanyMasterWorkingDays;
 	}
 
-	public String getQuotationResponseMessge() {
-		return quotationResponseMessge;
+	public String getQuotationResponseMessage() {
+		return quotationResponseMessage;
 	}
 
-	public void setQuotationResponseMessge(String quotationResponseMessge) {
-		this.quotationResponseMessge = quotationResponseMessge;
+	public void setQuotationResponseMessage(String quotationResponseMessage) {
+		this.quotationResponseMessage = quotationResponseMessage;
 	}
 
 	public ProviderMaster getProviderMaster() {
@@ -186,7 +186,5 @@ public class ProviderCompanyMaster {
 	public void setProductOrdered(List<ProductOrdered> productOrdered) {
 		this.productOrdered = productOrdered;
 	}
-	
-	
 	
 }

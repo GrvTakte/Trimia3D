@@ -1,6 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+       
+        <%@ page errorPage="error.jsp"  %>
     
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +54,7 @@
   </head>
 
   <body class="nav-md">
+  <% try{ %>
     <div class="container body">
       <div class="main_container">
        
@@ -260,6 +263,10 @@
 
     <!-- Custom Theme Scripts -->
     <script src="${pageContext.request.contextPath}/resources/portal/build/js/custom.min.js"></script>
+ <% }catch(Exception e){
+ 	throw e;
+ }
+	 %>
  
   </body>
 </html>

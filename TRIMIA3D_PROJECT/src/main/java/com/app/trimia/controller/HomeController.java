@@ -10,8 +10,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.app.trimia.model.Address;
+import com.app.trimia.model.Login;
+
+import com.app.trimia.model.Feedback;
+
 import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.ProviderMaster;
+
+import com.app.trimia.serviceinterface.ProviderMasterServiceInterface;
+
+import com.app.trimia.serviceinterface.FeedbackInterface;
+
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 import com.app.trimia.serviceinterface.SpecializationCategoryServiceInterface;
 
@@ -24,6 +33,11 @@ public class HomeController {
 	@Autowired
 	SpecializationCategoryServiceInterface categoryService;
 	
+	@Autowired
+	ProviderMasterServiceInterface masterService;
+
+	@Autowired
+	FeedbackInterface feedbackservice;
 
 	@RequestMapping("/")
 	public String dashboard()
@@ -43,6 +57,7 @@ public class HomeController {
 	public String client()
 	{
 		System.out.println("client");
+		
 		return "/serviceProviderPages/client";
 	}
 	
@@ -68,12 +83,12 @@ public class HomeController {
 	{
 		System.out.println("setting");
 		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("SP001");
-		Address add=pm.getAddress().get(0);
-		
+		System.out.println(pm);
+		//Address add = pm.getAddress().get(arg0)
 		//Address address=  (Address) pm.getAddress();
 		//Address address=addList.get(0);
 		map.addAttribute("pm", pm);
-		map.addAttribute("add", add);
+		//map.addAttribute("add", add);
 		//map.addAttribute("address", address);
 		return "/serviceProviderPages/setting";
 	}
@@ -116,10 +131,15 @@ public class HomeController {
 		return "/serviceProviderPages/material";
 	}
 	
+	//-------Author: Priyanka  Date:16/1/18
 	@RequestMapping("/feedback")
-	public String feedback()
+	public String feedback(ModelMap map)
 	{
 		System.out.println("feedback");
+		List<Feedback> flist=feedbackservice.getFeedback();
+		map.addAttribute("feedback", flist);
+		System.out.println("in controller "+flist);
+		
 		return "/serviceProviderPages/feedback";
 	}
 	
@@ -143,6 +163,7 @@ public class HomeController {
 		System.out.println("AdminPaymentStatus");
 		return "/serviceProviderPages/AdminPaymentStatus";
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping("/updateSettings")
 	public String updateSettings()
@@ -157,4 +178,21 @@ public class HomeController {
 		System.out.println("resetPassword called");
 		return "/serviceProviderPages/resetPassword";
 	}
+=======
+	
+	@RequestMapping("/register")
+	public String displayRegister() {
+		return "/serviceProviderPages/register";
+	}
+	
+	@RequestMapping("/register1")
+	public String registerProvider(@ModelAttribute ProviderMaster master, @ModelAttribute Login login) {
+		login.setEmail(master.getProviderMasterEmail());
+		master.setLogin(login);
+		//master.setProviderMasterId("SP002");
+		System.out.println(login.getEmail()+" "+login.getPassword());
+		masterService.registerProvider(master);
+		return "/serviceProviderPages/login";
+	}
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 }

@@ -23,17 +23,22 @@ public class MaterialSpecializationSubCategory {
 	private String specializationSubCategoryColor;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
+<<<<<<< HEAD
 	@JsonIgnore
 	private ProviderCompanyMaster providerCompanyMaster;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JsonIgnore
+=======
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	private MaterialSpecializationCategory materialSpecializationCategory;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JsonIgnore
 	private UserOffer userOffer;
 
+	@ManyToOne(cascade=CascadeType.ALL)
+	private ProviderCompanyMaster providerCompanyMaster;
 	
 	public String getSpecializationSubCategoryId() {
 		return specializationSubCategoryId;
@@ -81,14 +86,6 @@ public class MaterialSpecializationSubCategory {
 
 	public void setSpecializationSubCategoryColor(String specializationSubCategoryColor) {
 		this.specializationSubCategoryColor = specializationSubCategoryColor;
-	}
-
-	public ProviderCompanyMaster getProviderCompanyMaster() {
-		return providerCompanyMaster;
-	}
-
-	public void setProviderCompanyMaster(ProviderCompanyMaster providerCompanyMaster) {
-		this.providerCompanyMaster = providerCompanyMaster;
 	}
 
 	public MaterialSpecializationCategory getMaterialSpecializationCategory() {

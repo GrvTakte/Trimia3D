@@ -12,10 +12,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name="companyMasterClient")
 public class CompanyMasterClient {
 	@Id
-	private String clientId;
+	private String companyMasterClientId;
 	
-	private String clientName;
-	private String clientLogo;
+	private String companyMasterClientName;
+	private String companyMasterClientLogo;
 
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JsonIgnore
@@ -25,36 +25,36 @@ public class CompanyMasterClient {
 	@JsonIgnore
 	ProviderCompanyMaster providerCompanyMaster;
 
-	public String getClientId() {
-		return clientId;
+	public String getCompanyMasterClientId() {
+		return companyMasterClientId;
 	}
 
-	public void setClientId(String clientId) {
-		this.clientId = clientId;
+	public void setCompanyMasterClientId(String companyMasterClientId) {
+		this.companyMasterClientId = companyMasterClientId;
 	}
 
-	public String getClientName() {
-		return clientName;
+	public String getCompanyMasterClientName() {
+		return companyMasterClientName;
 	}
 
-	public void setClientName(String clientName) {
-		this.clientName = clientName;
+	public void setCompanyMasterClientName(String companyMasterClientName) {
+		this.companyMasterClientName = companyMasterClientName;
 	}
 
-	public String getClientLogo() {
-		return clientLogo;
+	public String getCompanyMasterClientLogo() {
+		return companyMasterClientLogo;
 	}
 
-	public void setClientLogo(String clientLogo) {
-		this.clientLogo = clientLogo;
+	public void setCompanyMasterClientLogo(String companyMasterClientLogo) {
+		this.companyMasterClientLogo = companyMasterClientLogo;
 	}
 
-	public ProviderMaster getServiceProviderRegistration() {
+	public ProviderMaster getProviderMaster() {
 		return providerMaster;
 	}
 
-	public void setServiceProviderRegistration(ProviderMaster serviceProviderRegistration) {
-		this.providerMaster = serviceProviderRegistration;
+	public void setProviderMaster(ProviderMaster providerMaster) {
+		this.providerMaster = providerMaster;
 	}
 
 	public ProviderCompanyMaster getProviderCompanyMaster() {
@@ -64,5 +64,7 @@ public class CompanyMasterClient {
 	public void setProviderCompanyMaster(ProviderCompanyMaster providerCompanyMaster) {
 		this.providerCompanyMaster = providerCompanyMaster;
 	}
+
+
 	
 }

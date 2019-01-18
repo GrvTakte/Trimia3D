@@ -27,6 +27,8 @@
     <link href="${pageContext.request.contextPath}/resources/portal/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="${pageContext.request.contextPath}/resources/portal/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    
+    <link href="${pageContext.request.contextPath}/resources/portal/js/material.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/portal/build/css/custom.min.css" rel="stylesheet">
@@ -46,201 +48,136 @@
 
         <!-- page content -->
         <div class="right_col" role="main">
-          <div class="">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Materials And Offers</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <!-- <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div> -->
+					<div class="container">
+    <center><h2 class="h2">Buy Material</h2></center>
+    <hr>
+    <div class="row">
+        <div class="col-md-2 col-sm-6">
+            <div class="product-grid6">
+                <div class="product-image6">
+                    <a href="#">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-1.jpg">
+                    </a>
                 </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Materials</h2>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-   <!-- ----------------------------------------------------------------------------------------- -->
-  
-
-
-
-
-                      <div class="container">
-                          <div class="row">
-                              <div class="col-lg-12">
-                                  <h2>Materials Image Gallery</h2>
-                              </div>
-                              <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Nut and Bolts</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 8000 <small>* including GST</small></p> 
-                                  		<button class="btn btn-warning">Buy Now</button></center>                                		
-                                  </a>
-                              </div>
-                              <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Circular Wheels</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 40000 <small>* including GST</small></p>
-                                  		<button class="btn btn-warning">Buy Now</button></center>                                  		
-                                  </a>
-                              </div>
-                              <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Half Wheels</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 3000 <small>* including GST</small></p>
-                                  		<button class="btn btn-warning">Buy Now</button></center>                               		
-                                  </a>
-                              </div>
-                              <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Semi Wheels</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 9500 <small>* including GST</small></p>
-                                  		<button class="btn btn-warning">Buy Now</button></center>                                 		
-                                  </a>
-                              </div>
-                              <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Coupling</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 3200 <small>* including GST</small></p>
-                                  		<button class="btn btn-warning">Buy Now</button></center>                                		
-                                  </a>
-                              </div>
-                              <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Big Coupling</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 1450 <small>* including GST</small></p>
-                                  		<button class="btn btn-warning">Buy Now</button></center>                                 		
-                                  </a>
-                              </div>
-                              <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Crank Shaft</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 8500 <small>* including GST</small></p>
-                                  		<button class="btn btn-warning">Buy Now</button></center>                              		
-                                  </a>
-                              </div>
-                             <div class="col-lg-3 col-md-4 col-sm-6">
-                                  <a class="thumbnail" style="line-height: 0.5; height: 250px;">
-                                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" />
-                                      <br><br>
-                                      <center><p><b>Belan</b></p></center>
-                                  		<center><p> <b>&#8377;</b> 1200 <small>* including GST</small></p>
-                                  		<button class="btn btn-warning">Buy Now</button></center>                                		
-                                  </a>
-                              </div>
-                          </div>
-                      </div>
-
-
-
-                    <div>
-                          <h3 >Offers on material</h3>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">Men's Shirt</a></h3>
+                    <div class="price">$11.00
+                        <span>$14.00</span>
                     </div>
-                    
-
-<div class="container">
-  <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-          <div id="imageCarousel" class="carousel slide" data-interval="2000"
-               data-ride="carousel" data-pause="hover" data-wrap="true">
-
-              <ol class="carousel-indicators">
-                  <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
-                  <li data-target="#imageCarousel" data-slide-to="1"></li>
-                  <li data-target="#imageCarousel" data-slide-to="2"></li>
-                  <li data-target="#imageCarousel" data-slide-to="3"></li>
-              </ol>
-
-              <div class="carousel-inner">
-
-                  <div class="item active">
-                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" class="img-responsive">
-                      <div class="carousel-caption">
-                          <h3>Nut and Bolts</h3>
-                          <p>Nut and Bolts Image Description</p>
-                      </div>
-                  </div>
-
-                  <div class="item">
-                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" class="img-responsive">
-                      <div class="carousel-caption">
-                          <h3>Circular Wheel</h3>
-                          <p>Circular Wheel Image Description</p>
-                      </div>
-                  </div>
-
-                  <div class="item">
-                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" class="img-responsive">
-                      <div class="carousel-caption">
-                          <h3>Half Wheel</h3>
-                          <p>Half Wheel Image Description</p>
-                      </div>
-                  </div>
-
-                  <div class="item">
-                      <img src="${pageContext.request.contextPath}/resources/portal/images/imagenotfound.jpg" class="img-responsive">
-                      <div class="carousel-caption">
-                          <h3>Semi Wheel</h3>
-                          <p>Semi Wheel Image Description</p>
-                      </div>
-                  </div>
-
-              </div>
-
-              <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-              </a>
-              <a href="#imageCarousel" class="carousel-control right" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-              </a>
-          </div>
-
-      </div>
-  </div>
-</div>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-</script>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-
+                </div>
+                <ul class="social">
+                    <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-6">
+            <div class="product-grid6">
+                <div class="product-image6">
+                    <a href="#">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-2.jpg">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">Women's Red Top</a></h3>
+                    <div class="price">$8.00
+                        <span>$12.00</span>
+                    </div>
+                </div>
+                <ul class="social">
+                    <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-6">
+            <div class="product-grid6">
+                <div class="product-image6">
+                    <a href="#">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-3.jpg">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">Men's Shirt</a></h3>
+                    <div class="price">$11.00
+                        <span>$14.00</span>
+                    </div>
+                </div>
+                <ul class="social">
+                    <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-6">
+            <div class="product-grid6">
+                <div class="product-image6">
+                    <a href="#">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-4.jpg">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">Men's Shirt</a></h3>
+                    <div class="price">$11.00
+                        <span>$14.00</span>
+                    </div>
+                </div>
+                <ul class="social">
+                    <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+        </div>
         
-
- <!----------- ----------------------------------------------------------------------------------- -->
-				
-                      
-
-                    </form>
-                  </div>
+        <div class="col-md-2 col-sm-6">
+            <div class="product-grid6">
+                <div class="product-image6">
+                    <a href="#">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-4.jpg">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">Men's Shirt</a></h3>
+                    <div class="price">$11.00
+                        <span>$14.00</span>
+                    </div>
+                </div>
+                <ul class="social">
+                    <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+             <div class="col-md-2 col-sm-6">
+            <div class="product-grid6">
+                <div class="product-image6">
+                    <a href="#">
+                        <img class="pic-1" src="http://bestjquery.com/tutorial/product-grid/demo10/images/img-4.jpg">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">Men's Shirt</a></h3>
+                    <div class="price">$11.00
+                        <span>$14.00</span>
+                    </div>
+                </div>
+                <ul class="social">
+                    <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                    <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                    <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</div>
                 </div>
               </div>
             </div>

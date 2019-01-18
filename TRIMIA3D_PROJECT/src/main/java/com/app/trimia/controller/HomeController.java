@@ -3,7 +3,6 @@ package com.app.trimia.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,13 +10,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.app.trimia.model.Address;
+import com.app.trimia.model.Login;
+
 import com.app.trimia.model.Feedback;
+
 import com.app.trimia.model.MaterialSpecializationCategory;
+<<<<<<< HEAD
 import com.app.trimia.model.ProviderCompanyMaster;
+=======
+import com.app.trimia.model.ProductQuotation;
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 import com.app.trimia.model.ProviderMaster;
+
+import com.app.trimia.serviceinterface.ProviderMasterServiceInterface;
+
 import com.app.trimia.serviceinterface.FeedbackInterface;
+<<<<<<< HEAD
 import com.app.trimia.serviceinterface.ProviderCompanyMasterInterface;
+=======
+import com.app.trimia.serviceinterface.ProductQautationSeviceInterface;
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 import com.app.trimia.serviceinterface.SpecializationCategoryServiceInterface;
 
@@ -31,16 +43,53 @@ public class HomeController {
 	SpecializationCategoryServiceInterface categoryService;
 	
 	@Autowired
-	FeedbackInterface feedbackservice;
+	ProviderMasterServiceInterface masterService;
+<<<<<<< HEAD
 	
+<<<<<<< HEAD
 	@Autowired
 	ProviderCompanyMasterInterface companyMasterService;
 	
+=======
+=======
+
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+	@Autowired
+	FeedbackInterface feedbackservice;
+
+	@Autowired
+	ProductQautationSeviceInterface quatationService;  
+	
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	@RequestMapping("/")
 	public String dashboard()
 	{
 		System.out.println("dashboard");
 		return "/serviceProviderPages/dashboard";
+	}
+	
+	@RequestMapping("/login")
+	public String loginPage()
+	{
+		System.out.println("Login Page");
+		return "/serviceProviderPages/login";
+	}
+	
+	
+	@RequestMapping(value="/log",method=RequestMethod.POST)
+	public String loginServiceProvider(@RequestParam String email,@RequestParam String password)
+	{
+		System.out.println(email);
+		System.out.println(password);
+		if(email.equals("service@gmail.com") && password.equals("Service123") )
+		{
+			return "/serviceProviderPages/dashboard";
+		}
+		else
+		{
+			return "/serviceProviderPages/login";	
+		}
+		
 	}
 	
 	@RequestMapping("/dashboard")
@@ -80,12 +129,12 @@ public class HomeController {
 	{
 		System.out.println("setting");
 		ProviderMaster pm=(ProviderMaster)settingsservicei.getProviderMaster("SP001");
-		Address add=pm.getAddress().get(0);
-		
+		System.out.println(pm);
+		//Address add = pm.getAddress().get(arg0)
 		//Address address=  (Address) pm.getAddress();
 		//Address address=addList.get(0);
 		map.addAttribute("pm", pm);
-		map.addAttribute("add", add);
+		//map.addAttribute("add", add);
 		//map.addAttribute("address", address);
 		return "/serviceProviderPages/setting";
 	}
@@ -101,10 +150,22 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/productQA")
-	public String productQA()
+	public String productQA(ModelMap map)
 	{
 		System.out.println("productQA");
+		
+		List<ProductQuotation> qlist=quatationService.productQA();
+		map.addAttribute("quatation",qlist);
 		return "/serviceProviderPages/productQA";
+	}
+	
+	
+	@RequestMapping("/addQuatation")
+	public String addQuatation(@ModelAttribute ProductQuotation pQuatation)
+	{
+		System.out.println("Add Quatation");
+		quatationService.addQuatation(pQuatation);
+		return "/serviceProviderPages/dashboard";
 	}
 	
 	@RequestMapping("/orderTracking")
@@ -160,6 +221,38 @@ public class HomeController {
 		System.out.println("AdminPaymentStatus");
 		return "/serviceProviderPages/AdminPaymentStatus";
 	}
+<<<<<<< HEAD
+	
+	@RequestMapping("/updateSettings")
+	public String updateSettings()
+	{
+		System.out.println("updateSettings called");
+		return "/serviceProviderPages/setting";
+	}
+	
+	@RequestMapping("/resetPassword")
+	public String resetPassword()
+	{
+		System.out.println("resetPassword called");
+		return "/serviceProviderPages/resetPassword";
+	}
+=======
+	
+	@RequestMapping("/register")
+	public String displayRegister() {
+		return "/serviceProviderPages/register";
+	}
+	
+	@RequestMapping("/register1")
+	public String registerProvider(@ModelAttribute ProviderMaster master, @ModelAttribute Login login) {
+		login.setEmail(master.getProviderMasterEmail());
+		master.setLogin(login);
+		//master.setProviderMasterId("SP002");
+		System.out.println(login.getEmail()+" "+login.getPassword());
+		masterService.registerProvider(master);
+		return "/serviceProviderPages/login";
+<<<<<<< HEAD
+	}
 	
 	@RequestMapping(value="/addNewCompany", method=RequestMethod.POST)
 	public String addNewCompany(@ModelAttribute ProviderCompanyMaster providerCompanyMaster,@RequestParam String providerCompanyMasterWorkingDayStart,@RequestParam String providerCompanyMasterWorkingDayEnd) {
@@ -172,4 +265,9 @@ public class HomeController {
 		return "/serviceProviderPages/addCompany";
 	}
 	
+	
+=======
+	}
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 }

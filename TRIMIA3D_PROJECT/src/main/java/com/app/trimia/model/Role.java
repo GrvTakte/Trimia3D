@@ -11,14 +11,14 @@ import javax.persistence.Table;
 public class Role{
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int rollId;
+   // @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private String rollId;
     private String roleName;
     
-	public int getRollId() {
+	public String getRollId() {
 		return rollId;
 	}
-	public void setRollId(int rollId) {
+	public void setRollId(String rollId) {
 		this.rollId = rollId;
 	}
 	public String getRoleName() {

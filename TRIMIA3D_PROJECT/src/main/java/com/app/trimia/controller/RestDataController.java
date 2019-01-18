@@ -1,6 +1,13 @@
 package com.app.trimia.controller;
 
+import java.io.File;
 import java.util.List;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -14,19 +21,34 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.trimia.model.CompanyMasterClient;
 import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.MaterialSpecializationSubCategory;
+<<<<<<< HEAD
 import com.app.trimia.model.ProviderCompanyMaster;
+=======
+<<<<<<< HEAD
+import com.app.trimia.model.ProviderMaster;
+import com.app.trimia.serviceinterface.SettingsServiceInterface;
+=======
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 import com.app.trimia.serviceinterface.CompanyMasterClientInterface;
+<<<<<<< HEAD
 import com.app.trimia.serviceinterface.ProviderCompanyMasterInterface;
+=======
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 import com.app.trimia.serviceinterface.SpecializationSubCategoryServiceInterface;
 
 @RestController
-public class RestDataController {	
+public class RestDataController {
 	
 	@Autowired
 	SpecializationSubCategoryServiceInterface subCatService;
 	
 	@Autowired
+<<<<<<< HEAD
+	SettingsServiceInterface settingsservicei;
+=======
 	CompanyMasterClientInterface clientService;
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	
 	@Autowired
 	ProviderCompanyMasterInterface companyMasterService;
@@ -41,26 +63,69 @@ public class RestDataController {
 		return new ResponseEntity<List<MaterialSpecializationSubCategory>>(list,HttpStatus.OK);
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value="/addClient")
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+	
+	@RequestMapping(value="/checkOldPass",method=RequestMethod.POST)
+	private ResponseEntity<ProviderMaster> checkOldPass(@RequestParam String id,@RequestParam String old)
+	{
+		System.out.println("checkOldPass called");
+		System.out.println(id+"  "+old);
+		ProviderMaster pm=settingsservicei.getProviderMasterByPass(old);
+		System.out.println(pm);
+		System.out.println(pm.getProviderMasterId()+"  "+pm.getLogin().getPassword());
+		System.out.println("hii");
+		return new ResponseEntity<ProviderMaster>(pm, HttpStatus.OK);
+		
+	}
+	
+=======
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+	@RequestMapping("/addClient")
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	public ResponseEntity<CompanyMasterClient> addClient(@RequestParam String clientId, @RequestParam String clientName)
 	{
 		
 		System.out.println("in add client");
+		System.out.println(clientId+" "+clientName);
 		CompanyMasterClient client=new CompanyMasterClient();
-		client.setClientId(clientId);
-		client.setClientName(clientName);
+		client.setCompanyMasterClientId(clientId);
+		client.setCompanyMasterClientName(clientName);
 		clientService.addClient(client);
 		return new ResponseEntity<CompanyMasterClient>(HttpStatus.OK);
-		
 	}
 	
+<<<<<<< HEAD
 	@RequestMapping(value="/viewClient") 
+=======
+<<<<<<< HEAD
+	
+
+
+=======
+	@RequestMapping("/uploadFile")
+	public ResponseEntity<String> uploadFile(HttpServletResponse response, HttpServletRequest request){
+		System.out.println("upload File Started");
+		return new ResponseEntity<String>("File Uploaded Successfully",HttpStatus.OK);
+	}
+	
+	@RequestMapping("/viewClient")
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	public ResponseEntity<List<CompanyMasterClient>> viewAllClient(){
 		System.out.println(" in view client");
 		List<CompanyMasterClient> client_list=clientService.viewAllClient();
+<<<<<<< HEAD
 		return new ResponseEntity<List<CompanyMasterClient>>(client_list, HttpStatus.OK);
 		
+=======
+		return new ResponseEntity<List<CompanyMasterClient>>(client_list,HttpStatus.OK);
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping(value="/deleteClient") 
 	public ResponseEntity<CompanyMasterClient> deleteClient(@RequestParam String clientId){
@@ -119,4 +184,8 @@ public class RestDataController {
 	
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 }

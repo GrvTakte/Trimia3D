@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.app.trimia.daointerface.ClientDaoInterface;
 import com.app.trimia.model.CompanyMasterClient;
 import com.app.trimia.serviceinterface.CompanyMasterClientInterface;
+
 @Service
 public class CompanyMasterClientImpl implements CompanyMasterClientInterface{
 
@@ -21,6 +22,7 @@ public class CompanyMasterClientImpl implements CompanyMasterClientInterface{
 
 	@Override
 	public List<CompanyMasterClient> viewAllClient() {
+<<<<<<< HEAD
 		List<CompanyMasterClient> client_list=(List<CompanyMasterClient>) clientDao.findAll();
 		return client_list;
 	}
@@ -46,4 +48,10 @@ public class CompanyMasterClientImpl implements CompanyMasterClientInterface{
 	}
 
 	
+=======
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 }

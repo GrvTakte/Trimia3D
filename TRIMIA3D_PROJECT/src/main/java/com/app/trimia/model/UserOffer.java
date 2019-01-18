@@ -18,17 +18,9 @@ public class UserOffer
 	private String userOfferName;
 	private String userOfferStartDate;
 	private String userOfferEndDate;
-	private String userOfferDiscount;
 	private String userOfferPublishDate;
 	private String userOfferUpdateDate;
-	
 	private String userAdminOfferPercentage;
-	//private String productSpecializationOfferPromoCode;
-	//private String productSpecializationOfferLogo;
-	
-	//company
-	
-	
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="userOffer")
 	@JsonIgnore
@@ -64,14 +56,6 @@ public class UserOffer
 
 	public void setUserOfferEndDate(String userOfferEndDate) {
 		this.userOfferEndDate = userOfferEndDate;
-	}
-
-	public String getUserOfferDiscount() {
-		return userOfferDiscount;
-	}
-
-	public void setUserOfferDiscount(String userOfferDiscount) {
-		this.userOfferDiscount = userOfferDiscount;
 	}
 
 	public String getUserOfferPublishDate() {

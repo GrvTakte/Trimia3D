@@ -31,7 +31,11 @@ public class ProviderCompanyMaster {
 	private String providerCompanyMasterOpeningTime;
 	private String providerCompanyMasterClosingTime;
 	private String providerCompanyMasterWorkingDays;
+<<<<<<< HEAD
 	private String quotationResponseMessge;
+=======
+	private String quotationResponseMessage;
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	
 
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -152,12 +156,12 @@ public class ProviderCompanyMaster {
 		this.providerCompanyMasterWorkingDays = providerCompanyMasterWorkingDays;
 	}
 
-	public String getQuotationResponseMessge() {
-		return quotationResponseMessge;
+	public String getQuotationResponseMessage() {
+		return quotationResponseMessage;
 	}
 
-	public void setQuotationResponseMessge(String quotationResponseMessge) {
-		this.quotationResponseMessge = quotationResponseMessge;
+	public void setQuotationResponseMessage(String quotationResponseMessage) {
+		this.quotationResponseMessage = quotationResponseMessage;
 	}
 
 	public ProviderMaster getProviderMaster() {
@@ -192,8 +196,6 @@ public class ProviderCompanyMaster {
 		this.productOrdered = productOrdered;
 	}
 
-	
-	
 	
 	
 }

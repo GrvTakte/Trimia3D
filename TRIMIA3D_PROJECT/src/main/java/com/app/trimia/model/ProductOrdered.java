@@ -15,12 +15,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class ProductOrdered {
 	
 	@Id
-	private String orderId;
+	private String productOrderedId;
 	
-	private String fileUrl;
-	private String orderDate;
-	private String orderTime;
-	private String completionDate;
+	private String productOrderedFileUrl;
+	private String productOrderedDate;
+	private String productOrderedTime;
+	private String productOrderedcompletionDate;
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="materialSpecializationSubCategory")
@@ -28,63 +28,73 @@ public class ProductOrdered {
 	private MaterialSpecializationSubCategory materialSpecializationSubCategory;
 
 	@ManyToOne(cascade=CascadeType.ALL)
+<<<<<<< HEAD
 	@JsonIgnore
 	private ProviderCompanyMaster providerCompanyMaster;
 
 	/*@ManyToOne(cascade=CascadeType.ALL)
 	private UserRegistration userRegistration;*/
+=======
+	private UserRegister userRegister;
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="productOrdered")
 	@JsonIgnore
 	private Feedback feedback;
-
-	//vishal
-	//private OrderCommission orderCommission;
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="productOrdered")
 	@JsonIgnore
 	private ProductOrderTracking productOrderTracking;
 	
+	@ManyToOne(cascade=CascadeType.ALL)
+	private ProviderCompanyMaster providerCompanyMaster;
 	
-
-	public String getOrderId() {
-		return orderId;
+	public String getProductOrderedId() {
+		return productOrderedId;
 	}
 
-	public void setOrderId(String orderId) {
-		this.orderId = orderId;
+	public void setProductOrderedId(String productOrderedId) {
+		this.productOrderedId = productOrderedId;
 	}
 
-	public String getFileUrl() {
-		return fileUrl;
+	public String getProductOrderedFileUrl() {
+		return productOrderedFileUrl;
 	}
 
-	public void setFileUrl(String fileUrl) {
-		this.fileUrl = fileUrl;
+	public void setProductOrderedFileUrl(String productOrderedFileUrl) {
+		this.productOrderedFileUrl = productOrderedFileUrl;
 	}
 
-	public String getOrderDate() {
-		return orderDate;
+	public String getProductOrderedDate() {
+		return productOrderedDate;
 	}
 
-	public void setOrderDate(String orderDate) {
-		this.orderDate = orderDate;
+	public void setProductOrderedDate(String productOrderedDate) {
+		this.productOrderedDate = productOrderedDate;
 	}
 
-	public String getOrderTime() {
-		return orderTime;
+	public String getProductOrderedTime() {
+		return productOrderedTime;
 	}
 
-	public void setOrderTime(String orderTime) {
-		this.orderTime = orderTime;
+	public void setProductOrderedTime(String productOrderedTime) {
+		this.productOrderedTime = productOrderedTime;
 	}
 
-	public String getCompletionDate() {
-		return completionDate;
+	public String getProductOrderedcompletionDate() {
+		return productOrderedcompletionDate;
 	}
 
-	public void setCompletionDate(String completionDate) {
-		this.completionDate = completionDate;
+	public void setProductOrderedcompletionDate(String productOrderedcompletionDate) {
+		this.productOrderedcompletionDate = productOrderedcompletionDate;
+	}
+
+	public UserRegister getUserRegister() {
+		return userRegister;
+	}
+
+	public void setUserRegister(UserRegister userRegister) {
+		this.userRegister = userRegister;
 	}
 
 	public MaterialSpecializationSubCategory getMaterialSpecializationSubCategory() {
@@ -95,14 +105,7 @@ public class ProductOrdered {
 		this.materialSpecializationSubCategory = materialSpecializationSubCategory;
 	}
 
-	public ProviderCompanyMaster getProviderCompanyMaster() {
-		return providerCompanyMaster;
-	}
-
-	public void setProviderCompanyMaster(ProviderCompanyMaster providerCompanyMaster) {
-		this.providerCompanyMaster = providerCompanyMaster;
-	}
-
+	
 	public Feedback getFeedback() {
 		return feedback;
 	}
@@ -118,9 +121,5 @@ public class ProductOrdered {
 	public void setProductOrderTracking(ProductOrderTracking productOrderTracking) {
 		this.productOrderTracking = productOrderTracking;
 	}
-
-	/*@OneToOne(cascade=CascadeType.ALL, mappedBy="productOrdered")
-	private ProductPaymentStatus productPaymentStatus;*/
-	
 	
 }

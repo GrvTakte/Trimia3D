@@ -6,5 +6,7 @@ import com.app.trimia.model.ProviderMaster;
 
 public interface SettingsDaoInterface extends CrudRepository<ProviderMaster, String>{
 
-	public ProviderMaster findAllByProviderMasterId(String id);
+	public ProviderMaster findAllByProviderMasterId(String old);
+
+	public ProviderMaster findAllByLogin_login_id(String old);
 }

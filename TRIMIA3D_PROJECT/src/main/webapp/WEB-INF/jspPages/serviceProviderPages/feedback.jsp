@@ -2,7 +2,6 @@
 <%@page import="java.util.List"%>
 <%@page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-     <%@page errorPage="error.jsp" %>
       
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +21,7 @@
     <!-- NProgress -->
     <link href="${pageContext.request.contextPath}/resources/portal/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
-   <link href="../vendors${pageContext.request.contextPath}/resources/portal/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+   <link href="${pageContext.request.contextPath}/resources/portal/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/portal/build/css/custom.min.css" rel="stylesheet">
@@ -73,11 +72,6 @@
             <div class="clearfix"></div>
 
             <div class="row">
-             
-
-
-             
-
             <!--   <div class="clearfix"></div> -->
 
               
@@ -116,10 +110,10 @@
                        		for(Feedback f:flist)
                        		{%>
                          <tr class="even pointer">
-                            <td><%=f.getProductOrdered().getOrderId() %></td>
+                            <td><%=f.getProductOrdered().getProductOrderedId() %></td>
                            
                             <td><%=f.getProductOrdered().getMaterialSpecializationSubCategory().getSpecializationSubCategoryName()%></td>
-                            <td><%=f.getProductOrdered().getProviderCompanyMaster().getServiceProviderCompanyName() %></td>
+                            <td><%=f.getProductOrdered().getMaterialSpecializationSubCategory().getMaterialSpecializationCategory().getProviderCompanyMaster().getProviderCompanyMasterName() %></td>
                             <td><%=f.getDateAndTime() %></td>                      
                             <td><%=f.getUserReview() %></td>              
                            

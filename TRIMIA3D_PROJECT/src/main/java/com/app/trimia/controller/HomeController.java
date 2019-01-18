@@ -36,7 +36,11 @@ public class HomeController {
 	
 	@Autowired
 	ProviderMasterServiceInterface masterService;
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	@Autowired
 	FeedbackInterface feedbackservice;
 
@@ -203,6 +207,22 @@ public class HomeController {
 		System.out.println("AdminPaymentStatus");
 		return "/serviceProviderPages/AdminPaymentStatus";
 	}
+<<<<<<< HEAD
+	
+	@RequestMapping("/updateSettings")
+	public String updateSettings()
+	{
+		System.out.println("updateSettings called");
+		return "/serviceProviderPages/setting";
+	}
+	
+	@RequestMapping("/resetPassword")
+	public String resetPassword()
+	{
+		System.out.println("resetPassword called");
+		return "/serviceProviderPages/resetPassword";
+	}
+=======
 	
 	@RequestMapping("/register")
 	public String displayRegister() {
@@ -212,14 +232,18 @@ public class HomeController {
 	@RequestMapping("/register1")
 	public String registerProvider(@ModelAttribute ProviderMaster master, @ModelAttribute Login login) {
 		login.setEmail(master.getProviderMasterEmail());
-		login.setLoginId("LG002");
 		master.setLogin(login);
-		master.setProviderMasterId("SP002");
+		//master.setProviderMasterId("SP002");
 		System.out.println(login.getEmail()+" "+login.getPassword());
 		masterService.registerProvider(master);
 		return "/serviceProviderPages/login";
+<<<<<<< HEAD
 	}
 	
 	
 	
+=======
+	}
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.app.trimia.daointerface.ClientDaoInterface;
 import com.app.trimia.model.CompanyMasterClient;
 import com.app.trimia.serviceinterface.CompanyMasterClientInterface;
+
 @Service
 public class CompanyMasterClientImpl implements CompanyMasterClientInterface{
 

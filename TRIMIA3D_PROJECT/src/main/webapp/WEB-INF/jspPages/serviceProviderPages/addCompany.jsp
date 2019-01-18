@@ -19,6 +19,7 @@
     <link href="${pageContext.request.contextPath}/resources/portal/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="${pageContext.request.contextPath}/resources/portal/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/WEB-INF/jspPages/serviceProviderPages/common/main.css" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
     <link href="${pageContext.request.contextPath}/resources/portal/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
     <!-- Select2 -->
@@ -91,7 +92,7 @@
                   
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company-name">Company Name <span class="required">*</span>
@@ -153,10 +154,19 @@
                         </label>
                         <div class="col-md-6">
                           <div class="col-md-6">
-                          <input type="file" id="companylogo" name="providerCompanyMasterLogo"  onchange="readURLLogoCompany(this);">
+<!--                           <input type="file" id="companylogo" name="providerCompanyMasterLogo"  onchange="readURLLogoCompany(this);">-->
+                          <form id="singleUploadForm" name="singleUploadForm">
+                        <input id="singleFileUploadInput" type="file" name="file" class="file-input" required onchange="readURLLogoCompany(this);"/>
+                        <button type="submit" class="primary submit-btn">Submit</button>
+                    </form>
                           </div>
                           <div class="col-md-6">
                             <img id="blah" src="#" height="75" width="50" alt="your image" />
+                            <a href="${pageContext.request.contextPath}/uploadFile">Upload</a>
+                            <div class="upload-response">
+                        <div id="singleFileUploadError"></div>
+                        <div id="singleFileUploadSuccess"></div>
+                    </div>
                           </div>
                         </div>
                       </div>
@@ -312,6 +322,7 @@
     <script src="${pageContext.request.contextPath}/resources/portal/vendors/starrr/dist/starrr.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="${pageContext.request.contextPath}/resources/portal/build/js/custom.min.js"></script>
+	    <script src="${pageContext.request.contextPath}/WEB-INF/jspPages/serviceProviderPages/common/main.js"></script>
 	
   </body>
 </html>

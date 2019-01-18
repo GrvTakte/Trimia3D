@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="providerCompanyMaster")
 public class ProviderCompanyMaster { 
@@ -29,18 +31,25 @@ public class ProviderCompanyMaster {
 	private String providerCompanyMasterOpeningTime;
 	private String providerCompanyMasterClosingTime;
 	private String providerCompanyMasterWorkingDays;
+<<<<<<< HEAD
+	private String quotationResponseMessge;
+=======
 	private String quotationResponseMessage;
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	
 
 	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private ProviderMaster providerMaster;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerCompanyMaster")
+	//@JsonIgnore
 	private List<MaterialSpecializationSubCategory> productSpecialization = new ArrayList<MaterialSpecializationSubCategory>();
 	
 	private String keywords;
 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerCompanyMaster")
+	@JsonIgnore
 	private List<ProductOrdered> productOrdered = new ArrayList<ProductOrdered>();
 
 	public String getProviderCompanyMasterId() {
@@ -186,5 +195,7 @@ public class ProviderCompanyMaster {
 	public void setProductOrdered(List<ProductOrdered> productOrdered) {
 		this.productOrdered = productOrdered;
 	}
+
+	
 	
 }

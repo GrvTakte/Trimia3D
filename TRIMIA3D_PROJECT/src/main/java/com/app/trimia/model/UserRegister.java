@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="userRegister")
 public class UserRegister {
@@ -24,10 +26,12 @@ public class UserRegister {
 	private String userDob;
 	
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	@JoinColumn(name="loginId")
 	private Login login;
 	
 	@OneToMany(cascade=CascadeType.ALL)
+	@JsonIgnore
 	List<Address> addressList=new ArrayList<Address>();
 
 	public List<Address> getAddressList() {

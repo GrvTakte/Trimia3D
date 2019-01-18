@@ -98,7 +98,7 @@
                             
                             <th class="column-title">Product Specialization </th>
                             <th class="column-title">Company Name </th>
-                            <th class="column-title">Date & Time</th>                        
+                           <!--  <th class="column-title">Date and Time</th>    -->                     
                             <th class="column-title">Review </th>
                             <th class="column-title">Rating </th>
                             
@@ -113,8 +113,13 @@
                             <td><%=f.getProductOrdered().getProductOrderedId() %></td>
                            
                             <td><%=f.getProductOrdered().getMaterialSpecializationSubCategory().getSpecializationSubCategoryName()%></td>
+<<<<<<< HEAD
+                            <td><%=f.getProductOrdered().getProviderCompanyMaster().getProviderCompanyMasterName() %></td>
+                           <%--  <td><%=f.getDateAndTime() %></td>    --%>                   
+=======
                             <td><%=f.getProductOrdered().getMaterialSpecializationSubCategory().getMaterialSpecializationCategory().getProviderCompanyMaster().getProviderCompanyMasterName() %></td>
                             <td><%=f.getDateAndTime() %></td>                      
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
                             <td><%=f.getUserReview() %></td>              
                            
                             <td>
@@ -152,14 +157,15 @@
         </div>
         <!-- /page content -->
 
-        <!-- footer content -->
+       <!--  <!-- footer content -->
         <div class="footer1">
         <p style="right:0;">Trimia3D</p>
         </div>
-        <!-- /footer content -->
+        /footer content -->
       </div>
     </div>
-
+	</div>
+	</div>
     <!-- jQuery -->
     <script src="${pageContext.request.contextPath}/resources/portal/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

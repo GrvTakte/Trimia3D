@@ -32,9 +32,8 @@
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/portal/build/css/custom.min.css" rel="stylesheet">
- +
 
- <script type="text/javascript">
+<script type="text/javascript">
   function readURLLogoCompany(input) {
       if (input.files && input.files[0]) {
           var reader = new FileReader();
@@ -49,12 +48,148 @@
           reader.readAsDataURL(input.files[0]);
       }
   }
+  
+ function viewCompanyList()
+ {
+	 alert("view company list function"); 
+	 var req= new XMLHttpRequest();
+     req.open("POST","viewCompanyList",true);
+     req.send();
+     
+     alert("send");
+     
+	 var table1=document.getElementById("tablecompany");
+	 req.onreadystatechange=function()
+	 {
+		 if(req.readyState==4 && req.status==200)
+			 {
+			 alert("hiii");
+			 alert(req.responseText);
+			 var companylist= JSON.parse(req.responseText);
+			 alert("jdjshd")
+			 alert(companylist);
+			  for(var i=0;i<companylist.length;i++)
+				 {
+				 	alert("in for loop")
+				  	var row=table1.insertRow();
+				 	var cell1=row.insertCell(0);
+				 	var cell2=row.insertCell(1);
+				 	var cell3=row.insertCell(2);
+				 	var cell4=row.insertCell(3);
+				 	var cell5=row.insertCell(4);
+				 	var cell6=row.insertCell(5);
+				 	
+				 	cell1.innerHTML=companylist[i].providerCompanyMasterId;
+				 	cell2.innerHTML=companylist[i].providerCompanyMasterName;
+				 	cell3.innerHTML=companylist[i].providerCompanyMasterAddress;
+				 //	cell3.innerHTML=companylist[i].productSpecialization[i].specializationSubCategoryName;
+				 	
+				 	/*  var select=document.createElement("select");
+				 	alert(companylist[i].productSpecialization[i].length);
+				 	
+				 	for(var j=0;j<companylist[i].productSpecialization[i].length;j++)
+					 { 
+				 		alert("jjj");
+				 		alert(companylist[i].productSpecialization[j].specializationSubCategoryName);
+				 		
+				 	//cell3.innerHTML="<select><option>"+companylist[i].productSpecialization[j].specializationSubCategoryName+"</option></select>";
+				 		
+						
+				 		 var option=document.createElement("option");
+				 		option.text=companylist[i].productSpecialization[j].specializationSubCategoryName;
+						select.appendChild(option);	
+						
+					 } 
+				 	cell3.appendChild(select);  */
+				 	
+				 	var view = document.createElement("input");
+				 	view.setAttribute("type", "button");
+				 	view.setAttribute("class", "btn btn-success");
+				 	view.setAttribute("data-toggle", "modal");
+				 	view.setAttribute("data-target", ".bs-example-modal-lg");
+				 	view.setAttribute("onclick", "viewCompany('" + companylist[i].providerCompanyMasterId+ "')");
+				 	view.setAttribute("value", "View");
+	 				
+				 	var edit = document.createElement("input");
+	 				edit.setAttribute("type", "button");
+	 				edit.setAttribute("class", "btn btn-success");
+	 				edit.setAttribute("data-toggle", "modal");
+	 				edit.setAttribute("data-target", "#myModal");
+	 				//edit.setAttribute("onclick", "editCompany('"+ JSON.stringify(clist[i]) + "')");
+	 				edit.setAttribute("onclick", "editCompany('" + companylist[i].providerCompanyMasterId+ "')");
+	 				edit.setAttribute("value", "Edit");
+
+	 				var remove = document.createElement("input");
+	 				remove.setAttribute("type", "button");
+	 				remove.setAttribute("class", "btn btn-success");
+	 				remove.setAttribute("onclick", "removeCompany('" + companylist[i].providerCompanyMasterId+ "')");
+	 				remove.setAttribute("value", "Remove");
+
+	 				cell4.appendChild(view);
+	 				cell5.appendChild(edit);
+	 				cell6.appendChild(remove); 
+				 } 
+			 }
+	 } 
+	 
+ }
+ 
+ 
+ function viewCompany(companyId)
+ {
+	 alert("view company");
+	 alert(companyId);
+	 var req=new XMLHttpRequest();
+	 req.open("GET","viewCompanyById?companyId="+companyId,true);
+	 req.send();
+	 
+	 req.onreadystatechange = function()
+	 {
+		 if(req.readyState==4 && req.status==200)
+			 {
+			 alert("res view company get")
+			 alert(req.responseText)
+			 var company = JSON.parse(req.responseText);
+			 document.getElementById("company-id").value=company.providerCompanyMasterId;
+			 document.getElementById("company-name").value=company.providerCompanyMasterName;
+			 document.getElementById("company-address").value=company.providerCompanyMasterAddress;
+			 document.getElementById("pancard").value=company.providerCompanyMasterPanCard;
+			 document.getElementById("gst-no").value=company.providerCompanyMasterGstNumber;
+			 document.getElementById("email").value=company.providerCompanyMasterEmail;
+			 document.getElementById("contact").value=company.providerCompanyMasterContact;
+			 document.getElementById("shoplicenenumber").value=company.providerCompanyMasterShopActLicenceNumber;
+			 document.getElementById("website").value=company.providerCompanyMasterWebSite;
+			 document.getElementById("openingTime").value=company.providerCompanyMasterOpeningTime;
+			 document.getElementById("closingTime").value=company.providerCompanyMasterClosingTime;
+			 document.getElementById("workingdays").value=company.providerCompanyMasterWorkingDays;
+			 document.getElementById("keywords").value=company.keywords;
+			 }
+	 } 
+ }
+ 
+ function removeCompany(companyId)
+ {
+		alert(companyId);		 
+		var req = new XMLHttpRequest();
+		req.open("GET", "removeCompany?companyId="+companyId, true);
+		req.send();
+		
+		req.onreadystatechange = function()
+		{
+			if (req.readyState == 4 && req.status == 200)
+			{
+				alert("res del");
+				//viewClient();
+				
+			}
+		} 
+ }
 </script>
 
 
  </head>
 
-  <body class="nav-md">
+  <body class="nav-md" onload="viewCompanyList()">
     <div class="container body">
       <div class="main_container">
 
@@ -75,7 +210,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Add your Company Details</h3>
+                
               </div>
 
              
@@ -85,198 +220,194 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   
-                    <h2>Company Registration Form</h2>
+                    <h2>Company List</h2>
                    
                     <div class="clearfix"></div>
                   
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="viewCompany" data-parsley-validate class="form-horizontal form-label-left">
+
+                      <div class="x_panel">
+                  
+                  <div class="x_content">
+
+                    <table class="table table-striped" id="tablecompany">
+                      <thead>
+                        <tr>
+                          <th>Company Id</th>
+                          <th>Company Name</th>
+                          <th>Company Specilization</th>
+                          <th>View</th>
+                          <th>Edit</th>
+                          <th>Remove</th>
+                        </tr>
+                      </thead>
+                     
+                    </table>
+
+<!-- modal -->
+
+	<div id="modal">
+                  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content" style="width: 850px;margin-left:200px">
+
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">�</span>
+                          </button>
+                          <h4 class="modal-title" id="myModalLabel">Company Details</h4>
+                        </div>
+                        <div class="modal-body" style="width: 850px;">
+							<div class="col-md-6 col-sm-12 col-xs-12">
+								<div class="x_panel" style="width: 800px;">
+									
+                  <div class="x_content">
+                    <br />
+                    <form class="form-horizontal form-label-left">
 
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company-name">Company Name <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="company-name" name="providerCompanyMasterName" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company-address">Company Addresss <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="company-address" name="providerCompanyMasterAddresss" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pancard">PanCard No <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="pancard" name="providerCompanyMasterPanCard" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Gst Number <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="gstno" name="providerCompanyMasterGstNumber" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno"> Email address<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="email" name="providerCompanyMasterEmail" required="required" class="form-control col-md-7 col-xs-12">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Company Id:</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="company-id" name="providerCompanyMasterId" class="form-control" data-inputmask="'mask': '99/99/9999'" readonly="readonly">
+                        <!-- <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
                       
-                      <!-- <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div> -->
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Contact Number <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="contact" name="providerCompanyMasterContact" required="required" class="form-control col-md-7 col-xs-12">
+					 <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Company Name:</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="company-name" name="providerCompanyMasterName" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Logo 
-                        </label>
-                        <div class="col-md-6">
-                          <div class="col-md-6">
-                          <input type="file" id="companylogo" name="providerCompanyMasterLogo"  onchange="readURLLogoCompany(this);">
-                          </div>
-                          <div class="col-md-6">
-                            <img id="blah" src="#" height="75" width="50" alt="your image" />
-                          </div>
+                      
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Company Addresss</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="company-address" name="providerCompanyMasterAddress" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Shop Act Licence Number <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="shoplicenenumber" name="providerCompanyMasterShopActLicenceNumber" required="required" class="form-control col-md-7 col-xs-12">
-                          
+                      
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">PanCard No</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="pancard" name="providerCompanyMasterPanCard" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
-
-      
-
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Website URL <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="url" id="website" name="website" required="required" placeholder="www.website.com" class="form-control col-md-7 col-xs-12">
+                      
+                     
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Gst Number</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="gst-no" name="providerCompanyMasterName" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Opening Time<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="shoplicenenumber" name="providerCompanyMasterOpeningTime" required="required" class="form-control col-md-7 col-xs-12">
+                      
+                    
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Email address</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="email" name="providerCompanyMasterEmail" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Closing Time<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="shoplicenenumber" name="providerCompanyMasterClosingTime" required="required" class="form-control col-md-7 col-xs-12">
+                      
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Contact Number</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="contact" name="providerCompanyMasterContact" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
+                        </div>
+                      </div>
+                      
+                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Shop Act Licence Number</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="shoplicenenumber" name="providerCompanyMasterShopActLicenceNumber" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
                       
                       <div class="form-group">
-                          <div class="row"> 
-                              <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Working Days<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                              From
-                              <select id="workingdays" name="providerCompanyMasterWorkingDays" required="required" class="form-control col-md-7 col-xs-12">
-                                <option value="select">Select Option</option>
-                                <option value="monday">Monday</option>
-                                <option value="tuesday">Tuesday</option>
-                                <option value="wednesday">Wednesday</option>
-                                <option value="thursday">Thursday</option>
-                                <option value="friday">Friday</option>
-                                <option value="saturday">Saturday</option>
-                                <option value="sunday">Sunday</option>
-                              </select>
-                           To
-                           <select id="workingdays" name="providerCompanyMasterWorkingDays" required="required" class="form-control col-md-7 col-xs-12">
-                            <option value="select">Select Option</option>
-                            <option value="monday">Monday</option>
-                            <option value="tuesday">Tuesday</option>
-                            <option value="wednesday">Wednesday</option>
-                            <option value="thursday">Thursday</option>
-                            <option value="friday">Friday</option>
-                            <option value="saturday">Saturday</option>
-                            <option value="sunday">Sunday</option>
-                          </select>
-                            </div>
-                          </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Keywords<span class="required">*</span>
-                        </label>
-                        Enter keywords for your company eg. location, product specialization
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input placeholder="location,product specialization, service proider name etc. " type="text" id="shoplicenenumber" name="providerCompanyMasterShopActLicenceNumber" required="required" class="form-control col-md-7 col-xs-12">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Website URL </label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="website" name="providerCompanyMasterWebSite" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
-
-                      </div>
-
-                      <!-- <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
-                        </div>
-                      </div> -->
-
                       
-
-                
-
-
-                      <div class="ln_solid"></div>
                       <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Cancel</button>
-						  <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Submit</button>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Opening Time</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="openingTime" name="providerCompanyMasterOpeningTime" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
                         </div>
                       </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Closing Time</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="closingTime" name="providerCompanyMasterClosingTime" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Working Days</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="workingdays" name="providerCompanyMasterWorkingDayStart" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
+                        </div>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-3" style="text-align: start;">Keywords</label>
+                        <div class="col-md-9 col-sm-9 col-xs-9">
+                          <input type="text" id="keywords" name="keywords" class="form-control" data-inputmask="'mask' : '(999) 999-9999'" readonly="readonly">
+                        <!--  <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>-->
+                        </div>
+                      </div>
+	
+                    
+                     
+                     
 
                     </form>
                   </div>
                 </div>
+              </div>         
+
+              <div class="clearfix"></div>
+
+             	
+						
+                  </div>
+                </div>
               </div>
             </div>
+         </div>
 
-           
-            
-           
+<!-- modal -->
 
 
-           
-          
-       
-      </div>
+
+
+                  </div>
+                </div>
+
+                    </form> 
+                  </div>
+                </div>
+              </div>
+            </div>
     </div>
-
+    </div>
+	</div>
+	</div>
     <!-- jQuery -->
     <script src="${pageContext.request.contextPath}/resources/portal/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
@@ -314,5 +445,4 @@
     <script src="${pageContext.request.contextPath}/resources/portal/build/js/custom.min.js"></script>
 	
   </body>
-</html>
 </html>

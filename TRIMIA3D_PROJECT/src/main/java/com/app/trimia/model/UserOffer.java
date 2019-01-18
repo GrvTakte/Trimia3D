@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="userOffer")
 public class UserOffer
@@ -21,6 +23,7 @@ public class UserOffer
 	private String userAdminOfferPercentage;
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="userOffer")
+	@JsonIgnore
 	MaterialSpecializationSubCategory materialSpecializationSubCategory;
 
 	public String getUserOfferId() {

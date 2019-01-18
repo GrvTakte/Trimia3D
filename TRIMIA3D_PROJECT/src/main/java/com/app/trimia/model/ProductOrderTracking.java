@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="productOrderTracking")
 public class ProductOrderTracking {
@@ -20,6 +22,7 @@ public class ProductOrderTracking {
 	private String productOrderTrackingDelieveredDate;
 
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private ProductOrdered productOrdered;
 
 	public String getProductOrderTrackingId() {

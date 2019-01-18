@@ -22,8 +22,36 @@ public class CompanyMasterClientImpl implements CompanyMasterClientInterface{
 
 	@Override
 	public List<CompanyMasterClient> viewAllClient() {
+<<<<<<< HEAD
+		List<CompanyMasterClient> client_list=(List<CompanyMasterClient>) clientDao.findAll();
+		return client_list;
+	}
+
+	@Override
+	public void deleteClient(String clientId) {
+		System.out.println("in del()"+clientId);
+		clientDao.deleteById(clientId);
+		
+	}
+
+	@Override
+	public CompanyMasterClient editClient(String clientId) {
+		//CompanyMasterClient client=clientDao.findById(clientId);
+		CompanyMasterClient client=clientDao.findAllByClientId(clientId);	
+		return client;
+	}
+
+	@Override
+	public void updateClient(CompanyMasterClient client) {
+		clientDao.save(client);
+		
+	}
+
+	
+=======
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 }

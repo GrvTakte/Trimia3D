@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="login")
 public class Login{
@@ -17,12 +19,14 @@ public class Login{
     private String password;
 
     @OneToOne(cascade=CascadeType.ALL, mappedBy="login")
+    @JsonIgnore
     private ProviderMaster serviceProviderRegistration;
     
    /* @OneToOne(cascade=CascadeType.ALL)
     private UserRegistration userRegistration;*/
     
     @OneToOne(cascade=CascadeType.ALL)
+    @JsonIgnore
     private Role role;
 
 	public String getLoginId() {

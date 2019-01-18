@@ -8,6 +8,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="productOrdered")
 public class ProductOrdered {
@@ -22,15 +24,26 @@ public class ProductOrdered {
 	
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="materialSpecializationSubCategory")
+	@JsonIgnore
 	private MaterialSpecializationSubCategory materialSpecializationSubCategory;
 
 	@ManyToOne(cascade=CascadeType.ALL)
+<<<<<<< HEAD
+	@JsonIgnore
+	private ProviderCompanyMaster providerCompanyMaster;
+
+	/*@ManyToOne(cascade=CascadeType.ALL)
+	private UserRegistration userRegistration;*/
+=======
 	private UserRegister userRegister;
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="productOrdered")
+	@JsonIgnore
 	private Feedback feedback;
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="productOrdered")
+	@JsonIgnore
 	private ProductOrderTracking productOrderTracking;
 	
 	@ManyToOne(cascade=CascadeType.ALL)

@@ -7,7 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="/log" method="post">
+<center>
 <h1>Login Page</h1>
-<a href="dashboard">Home</a>
+<br><br>
+Username : <input type="text" name="email"><br><br>
+Password : <input type="password" name="password"><br><br>
+<input type="submit" value="Login">
+
+</center>
+</form>
 </body>
 </html>

@@ -33,9 +33,8 @@
 
     <!-- Custom Theme Style -->
     <link href="${pageContext.request.contextPath}/resources/portal/build/css/custom.min.css" rel="stylesheet">
- +
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
   function readURLLogoCompany(input) {
       if (input.files && input.files[0]) {
           var reader = new FileReader();
@@ -49,7 +48,7 @@
 
           reader.readAsDataURL(input.files[0]);
       }
-  }
+  } -->
 </script>
 
 
@@ -92,8 +91,24 @@
                   
                   <div class="x_content">
                     <br />
+<<<<<<< HEAD
+                    <form action="addNewCompany" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="post">
+=======
                     <form id="demo-form2" enctype="multipart/form-data" data-parsley-validate class="form-horizontal form-label-left">
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 
+                      
+                       <!-- <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company-name">Company Id <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="company-id" name="providerCompanyMasterId" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>  -->
+                      
+                      
+                      
+                      
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company-name">Company Name <span class="required">*</span>
                         </label>
@@ -105,11 +120,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company-address">Company Addresss <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="company-address" name="providerCompanyMasterAddresss" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" id="company-address" name="providerCompanyMasterAddress" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
-                      <div class="form-group">
+                     <!--  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="pancard">PanCard No <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -133,13 +148,13 @@
                         </div>
                       </div>
                       
-                      <!-- <div class="item form-group">
+                      <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="email" id="email2" name="confirm_email" data-validate-linked="email" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
-                      </div> -->
+                      </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Contact Number <span class="required">*</span>
@@ -154,11 +169,16 @@
                         </label>
                         <div class="col-md-6">
                           <div class="col-md-6">
+<<<<<<< HEAD
+                          <input type="file" id="companylogo" name="providerCompanyMasterLogo"  onchange="readURLLogoCompany(this);">
+                          <input type="file" id="companylogo" name="providerCompanyMasterLogo"  onchange="readURLLogoCompany(this);">
+=======
 <!--                           <input type="file" id="companylogo" name="providerCompanyMasterLogo"  onchange="readURLLogoCompany(this);">-->
                           <form id="singleUploadForm" name="singleUploadForm">
                         <input id="singleFileUploadInput" type="file" name="file" class="file-input" required onchange="readURLLogoCompany(this);"/>
                         <button type="submit" class="primary submit-btn">Submit</button>
                     </form>
+>>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
                           </div>
                           <div class="col-md-6">
                             <img id="blah" src="#" height="75" width="50" alt="your image" />
@@ -186,7 +206,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Website URL <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="url" id="website" name="website" required="required" placeholder="www.website.com" class="form-control col-md-7 col-xs-12">
+                          <input type="url" id="website" name="providerCompanyMasterWebSite" required="required" placeholder="www.website.com" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -194,7 +214,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Opening Time<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="shoplicenenumber" name="providerCompanyMasterOpeningTime" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="time" id="openingTime" name="providerCompanyMasterOpeningTime" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -202,9 +222,9 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="gstno">Closing Time<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="shoplicenenumber" name="providerCompanyMasterClosingTime" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="time" id="closingTime" name="providerCompanyMasterClosingTime" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
-                      </div>
+                      </div>-->
                       
                       <div class="form-group">
                           <div class="row"> 
@@ -212,7 +232,7 @@
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               From
-                              <select id="workingdays" name="providerCompanyMasterWorkingDays" required="required" class="form-control col-md-7 col-xs-12">
+                              <select id="workingdays" name="providerCompanyMasterWorkingDayStart" required="required" class="form-control col-md-7 col-xs-12">
                                 <option value="select">Select Option</option>
                                 <option value="monday">Monday</option>
                                 <option value="tuesday">Tuesday</option>
@@ -223,7 +243,7 @@
                                 <option value="sunday">Sunday</option>
                               </select>
                            To
-                           <select id="workingdays" name="providerCompanyMasterWorkingDays" required="required" class="form-control col-md-7 col-xs-12">
+                           <select id="workingdays" name="providerCompanyMasterWorkingDayEnd" required="required" class="form-control col-md-7 col-xs-12">
                             <option value="select">Select Option</option>
                             <option value="monday">Monday</option>
                             <option value="tuesday">Tuesday</option>
@@ -242,11 +262,11 @@
                         </label>
                         Enter keywords for your company eg. location, product specialization
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input placeholder="location,product specialization, service proider name etc. " type="text" id="shoplicenenumber" name="providerCompanyMasterShopActLicenceNumber" required="required" class="form-control col-md-7 col-xs-12">
+                          <input placeholder="location,product specialization, service proider name etc. " type="text" id="keywords" name="keywords" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
-                      </div>
+                      </div> 
 
                       <!-- <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>

@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="companyMasterClient")
 public class CompanyMasterClient {
@@ -16,9 +18,11 @@ public class CompanyMasterClient {
 	private String clientLogo;
 
 	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private ProviderMaster providerMaster;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	ProviderCompanyMaster providerCompanyMaster;
 
 	public String getClientId() {

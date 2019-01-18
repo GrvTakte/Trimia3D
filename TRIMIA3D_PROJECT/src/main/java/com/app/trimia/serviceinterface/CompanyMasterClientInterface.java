@@ -11,6 +11,12 @@ public interface CompanyMasterClientInterface {
 
 	public List<CompanyMasterClient> viewAllClient();
 
+	public void deleteClient(String clientId);
+
+	public CompanyMasterClient editClient(String clientId);
+
+	public void updateClient(CompanyMasterClient client);
+
 	
 
 }

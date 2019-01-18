@@ -7,6 +7,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="materialSpecializationSubCategory")
 public class MaterialSpecializationSubCategory {
@@ -21,12 +23,15 @@ public class MaterialSpecializationSubCategory {
 	private String specializationSubCategoryColor;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private ProviderCompanyMaster providerCompanyMaster;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private MaterialSpecializationCategory materialSpecializationCategory;
 	
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private UserOffer userOffer;
 
 	

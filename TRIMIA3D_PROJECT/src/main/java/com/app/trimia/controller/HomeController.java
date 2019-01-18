@@ -8,12 +8,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.trimia.model.Address;
 import com.app.trimia.model.Feedback;
 import com.app.trimia.model.MaterialSpecializationCategory;
+import com.app.trimia.model.ProviderCompanyMaster;
 import com.app.trimia.model.ProviderMaster;
 import com.app.trimia.serviceinterface.FeedbackInterface;
+import com.app.trimia.serviceinterface.ProviderCompanyMasterInterface;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 import com.app.trimia.serviceinterface.SpecializationCategoryServiceInterface;
 
@@ -28,6 +32,9 @@ public class HomeController {
 	
 	@Autowired
 	FeedbackInterface feedbackservice;
+	
+	@Autowired
+	ProviderCompanyMasterInterface companyMasterService;
 	
 	@RequestMapping("/")
 	public String dashboard()
@@ -154,5 +161,15 @@ public class HomeController {
 		return "/serviceProviderPages/AdminPaymentStatus";
 	}
 	
+	@RequestMapping(value="/addNewCompany", method=RequestMethod.POST)
+	public String addNewCompany(@ModelAttribute ProviderCompanyMaster providerCompanyMaster,@RequestParam String providerCompanyMasterWorkingDayStart,@RequestParam String providerCompanyMasterWorkingDayEnd) {
+		System.out.println("in add new company");
+		System.out.println("Master ID: "+providerCompanyMaster.getProviderCompanyMasterId());
+		String providerCompanyMasterWorkingDays=providerCompanyMasterWorkingDayStart+"-"+providerCompanyMasterWorkingDayEnd;
+		providerCompanyMaster.setProviderCompanyMasterWorkingDays(providerCompanyMasterWorkingDays);
+		System.out.println(providerCompanyMaster.getProviderCompanyMasterWorkingDays());
+		companyMasterService.addNewCompany(providerCompanyMaster);
+		return "/serviceProviderPages/addCompany";
+	}
 	
 }

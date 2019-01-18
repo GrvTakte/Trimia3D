@@ -34,9 +34,11 @@
   function addClient()
   {
 	  alert("add client");
-	  
+	  	
 		var clientId=document.getElementById("clientid").value;
 		var clientName=document.getElementById("clientname").value;
+		clientId.innerHTML="";
+		clientName.innerHTML="";
 		alert(clientId+" "+clientName);
 		var req=new XMLHttpRequest();
 		
@@ -50,12 +52,138 @@
 				alert("client added");
 				}
 		}
-  }
+		 	/* var clientId=document.getElementById("clientid").value="";
+			var clientName=document.getElementById("clientname").value=""; */
+			document.getElementById("demo-form2").reset();
+			viewClient();
+}
   
+  function viewClient() 
+  {
+	  alert("view client");
+	  var table=document.getElementById("table_client");
+	  table.innerHTML="";
+	  
+	     var row=table.insertRow();
+		 var cell1=row.insertCell(0); 
+		 var cell2=row.insertCell(1); 
+		 var cell3=row.insertCell(2); 
+		 var cell4=row.insertCell(3); 
+		 var cell5=row.insertCell(4); 
+		 
+		 cell1.innerHTML="Client Id";
+		 cell2.innerHTML="Client Name";
+		 cell3.innerHTML="Client Logo";
+		 cell4.innerHTML=" Edit";
+		 cell5.innerHTML=" Delete";
+		 
+      var req= new XMLHttpRequest();
+      req.open("GET","viewClient",true);
+     alert("send")
+      req.send();
+     //alert("send")
+     
+     req.onreadystatechange=function()
+     {
+    	 if(req.readyState==4 && req.status==200)
+    		 {
+    		 alert("in if")
+    		 var clist=JSON.parse(req.responseText);
+    		 alert(clist)
+    		 //var table=document.getElementById("");
+    		 for(var i=0;i<clist.length;i++)
+    			 {
+    			 var row=table.insertRow();
+    			 var cell1=row.insertCell(0); 
+    			 var cell2=row.insertCell(1); 
+    			 var cell3=row.insertCell(2); 
+    			 var cell4=row.insertCell(3); 
+    			 var cell5=row.insertCell(4); 
+    			 
+    			 cell1.innerHTML=clist[i].clientId;
+    			 cell2.innerHTML=clist[i].clientName;
+    			 cell3.innerHTML=clist[i].clientLogo;
+    			 /* cell4.innerHTML='<input type="button" onClick="editClient('+clist[i].clientId+')" value="Edit">';
+    			 cell5.innerHTML='<input type="button" onClick="deleteClient('+clist[i].clientId+')" value="Delete">'; */
+    			 
+    			 var edit = document.createElement("input");
+ 				edit.setAttribute("type", "button");
+ 				edit.setAttribute("class", "btn btn-success");
+ 				edit.setAttribute("data-toggle", "modal");
+ 				edit.setAttribute("data-target", "#myModal");
+ 				//edit.setAttribute("onclick", "editClient('"+ JSON.stringify(clist[i]) + "')");
+ 				edit.setAttribute("onclick", "editClient('" + clist[i].clientId+ "')");
+ 				edit.setAttribute("value", "Edit");
+
+ 				var del = document.createElement("input");
+ 				del.setAttribute("type", "button");
+ 				del.setAttribute("class", "btn btn-success");
+ 				del.setAttribute("onclick", "deleteClient('" + clist[i].clientId+ "')");
+ 				del.setAttribute("value", "Delete");
+
+ 				cell4.appendChild(edit);
+ 				cell5.appendChild(del);
+    		
+    			 }
+    		 }
+     }
+ }
+  
+  
+ function deleteClient(clientId)
+ {
+		alert(clientId);		 
+		var req = new XMLHttpRequest();
+		req.open("GET", "deleteClient?clientId="+clientId, true);
+		req.send();
+		
+		req.onreadystatechange = function()
+		{
+			if (req.readyState == 4 && req.status == 200)
+			{
+				alert("res del");
+				viewClient();
+				
+			}
+		} 
+ }
+ 
+ function editClient(clientId)
+ {
+	 alert("edit called")
+	 alert(clientId);
+	var req=new XMLHttpRequest();
+	 req.open("GET","editClient?clientId="+clientId,true);
+	 req.send();
+	 
+	 req.onreadystatechange = function()
+	 {
+		 if(req.readyState==4 && req.status==200)
+			 {
+			 alert("res edit get")
+			 alert(req.responseText)
+			 var client = JSON.parse(req.responseText);
+			 document.getElementById("clientid").value=client.clientId;
+			 document.getElementById("clientname").value=client.clientName;
+			 }
+	 } 
+ }
+ 
+ function updateClient()
+ {
+	 alert("update called");
+	 addClient();
+	 viewClient();
+ }
+ 
+
+ function myFunction() {
+   document.getElementById("table_client");
+ }
   </script>
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" onload="viewClient()">
     <div class="container body">
       <div class="main_container">
       		 <jsp:include page="${pageContext.request.contextPath}/WEB-INF/jspPages/serviceProviderPages/common/sidebar.jsp"></jsp:include>
@@ -145,8 +273,8 @@
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Cancel</button>
-						  <button class="btn btn-primary" type="reset">Reset</button>
+                          <button class="btn btn-primary" type="button" onclick="updateClient()">Update</button>
+						  <button class="btn btn-primary" type="reset" >Reset</button>
                           <button type="button" class="btn btn-success" onclick="addClient()" >Submit</button>
                         </div>
                       </div>
@@ -159,12 +287,8 @@
                         <i class="fa fa-users"></i> Clients
                       </a>
                       
-                      <script>
-                        function myFunction() {
-                          document.getElementById("table_client");
-                        }
-                        </script>
                       
+                       
                     <div>
                       <table class="table table-bordered" id="table_client">
                         <thead class="thead-light">
@@ -172,10 +296,12 @@
                             <th scope="col">#</th>
                             <th scope="col">Client Name</th>
                             <th scope="col">Client Logo</th>
+                           <th scope="col">Edit</th>
+                           <th scope="col">Delete</th>                    
                           </tr>
                         </thead>
                         
-                        <tbody>
+                        <!-- <tbody>
                           <tr>
                             <th scope="row">1</th>
                             <td>Tata</td>
@@ -187,7 +313,7 @@
                             <td>Capgimini</td>
                             <td>Otto</td>
                           </tr>
-                        </tbody>
+                        </tbody> -->
                       </table>
                     </div>
                     

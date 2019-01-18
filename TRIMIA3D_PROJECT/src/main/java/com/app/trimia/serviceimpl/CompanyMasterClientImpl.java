@@ -1,5 +1,7 @@
 package com.app.trimia.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +19,31 @@ public class CompanyMasterClientImpl implements CompanyMasterClientInterface{
 		clientDao.save(companyMasterClient);
 	}
 
+	@Override
+	public List<CompanyMasterClient> viewAllClient() {
+		List<CompanyMasterClient> client_list=(List<CompanyMasterClient>) clientDao.findAll();
+		return client_list;
+	}
+
+	@Override
+	public void deleteClient(String clientId) {
+		System.out.println("in del()"+clientId);
+		clientDao.deleteById(clientId);
+		
+	}
+
+	@Override
+	public CompanyMasterClient editClient(String clientId) {
+		//CompanyMasterClient client=clientDao.findById(clientId);
+		CompanyMasterClient client=clientDao.findAllByClientId(clientId);	
+		return client;
+	}
+
+	@Override
+	public void updateClient(CompanyMasterClient client) {
+		clientDao.save(client);
+		
+	}
+
+	
 }

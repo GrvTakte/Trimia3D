@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Feedback 
 {
@@ -16,6 +18,7 @@ public class Feedback
 	 private String dateAndTime;
 	 
 	 @OneToOne(cascade=CascadeType.ALL)
+	 @JsonIgnore
 	private ProductOrdered productOrdered;
 
 	public String getId() {

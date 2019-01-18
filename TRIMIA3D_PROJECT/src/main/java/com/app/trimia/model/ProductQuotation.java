@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name="productQuotation")
@@ -22,9 +24,11 @@ public class ProductQuotation
    
 	
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
    private ProviderCompanyMaster companyMaster;
 	
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
    private UserRegister userRegister;
 
 public String getId() {

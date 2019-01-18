@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="companyMasterFeedback")
 public class CompanyMasterFeedback {
@@ -18,6 +20,7 @@ public class CompanyMasterFeedback {
 	private String feedbackDateAndTime;
 
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private ProductOrdered productOrdered;
 
 	public String getFeedbackId() {

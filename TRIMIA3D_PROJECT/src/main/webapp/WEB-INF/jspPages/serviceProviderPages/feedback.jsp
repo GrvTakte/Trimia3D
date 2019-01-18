@@ -104,7 +104,7 @@
                             
                             <th class="column-title">Product Specialization </th>
                             <th class="column-title">Company Name </th>
-                            <th class="column-title">Date & Time</th>                        
+                           <!--  <th class="column-title">Date and Time</th>    -->                     
                             <th class="column-title">Review </th>
                             <th class="column-title">Rating </th>
                             
@@ -119,8 +119,8 @@
                             <td><%=f.getProductOrdered().getOrderId() %></td>
                            
                             <td><%=f.getProductOrdered().getMaterialSpecializationSubCategory().getSpecializationSubCategoryName()%></td>
-                            <td><%=f.getProductOrdered().getProviderCompanyMaster().getServiceProviderCompanyName() %></td>
-                            <td><%=f.getDateAndTime() %></td>                      
+                            <td><%=f.getProductOrdered().getProviderCompanyMaster().getProviderCompanyMasterName() %></td>
+                           <%--  <td><%=f.getDateAndTime() %></td>    --%>                   
                             <td><%=f.getUserReview() %></td>              
                            
                             <td>
@@ -165,7 +165,8 @@
         <!-- /footer content -->
       </div>
     </div>
-
+	</div>
+	</div>
     <!-- jQuery -->
     <script src="${pageContext.request.contextPath}/resources/portal/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

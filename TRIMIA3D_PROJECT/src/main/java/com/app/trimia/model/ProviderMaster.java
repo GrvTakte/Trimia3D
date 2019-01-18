@@ -10,6 +10,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="providerMaster")
 public class ProviderMaster {
@@ -27,14 +29,17 @@ public class ProviderMaster {
 	private String providerMasterProfileImage;
 
 	@OneToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private Login login;
 	
 	//update field
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
+	@JsonIgnore
 	private List<Address> address=new ArrayList<Address>();
 	
 	//update field
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
+	@JsonIgnore
 	private List<ProviderCompanyMaster> serviceProviderCompanyDetails=new ArrayList<ProviderCompanyMaster>();
 	
 	//update field
@@ -42,6 +47,7 @@ public class ProviderMaster {
 	private Membership memberShipId;*/
 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="providerMaster")
+	@JsonIgnore
 	private List<CompanyMasterClient> serviceProviderClient = new ArrayList<CompanyMasterClient>();
 
 

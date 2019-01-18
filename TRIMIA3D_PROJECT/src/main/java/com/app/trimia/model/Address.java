@@ -6,6 +6,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="address")
 public class Address {
@@ -24,6 +26,7 @@ public class Address {
 
 
 	@ManyToOne(cascade=CascadeType.ALL)
+	@JsonIgnore
 	private ProviderMaster providerMaster;
 
 	public String getAddressId() {

@@ -163,7 +163,7 @@ public class HomeController {
 		System.out.println("AdminPaymentStatus");
 		return "/serviceProviderPages/AdminPaymentStatus";
 	}
-<<<<<<< HEAD
+
 	
 	@RequestMapping("/updateSettings")
 	public String updateSettings()
@@ -178,7 +178,6 @@ public class HomeController {
 		System.out.println("resetPassword called");
 		return "/serviceProviderPages/resetPassword";
 	}
-=======
 	
 	@RequestMapping("/register")
 	public String displayRegister() {
@@ -194,5 +193,5 @@ public class HomeController {
 		masterService.registerProvider(master);
 		return "/serviceProviderPages/login";
 	}
->>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+
 }

@@ -38,27 +38,6 @@
   
   <script type="text/javascript">
   
-  function validation(){
-	var name = document.getElementById("name").value;
-	var code = document.getElementById("code").value;
-	var description = document.getElementById("description").value;
-	var form = document.getElementById("specialization");
-	
-	if(name.length ==0){
-		alert("Please Enter Name");
-		form.name.focus();
-	}else if(code.length == 0){
-		alert("Please Enter Code")
-		form.code.focus();
-	}else if(description.length == 0){
-		alert("Please Enter Description")
-		form.description.focus();
-	}else{
-		form.action="";
-		form.submit();
-	}
-  }
-  
   </script>
   
   
@@ -96,10 +75,13 @@
                   </div>
                   <div class="x_content">
                     <br />
-                    <form id="specialization" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="specialization" action="saveSpecialization" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data
+                    ">
 
 
 					<div class="form-group">
+					
+					
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="Category">Category <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -117,7 +99,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="productName">Specialization Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12" required>
+                          <input type="text" id="name" name="name" required="required" class="form-control col-md-7 col-xs-12" required>
                         </div>
 				      </div>
 					  
@@ -156,7 +138,7 @@
 					  <div class="form-group">
                         <label for="imageUrl" class="control-label col-md-3 col-sm-3 col-xs-12">Select Image</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="imageUrl"  type="file" name="imageUrl">
+							<button type="button" class="btn btn-round btn-info btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg" id="view">Upload Image</button>
                         </div>
                       </div>
 					  					  
@@ -165,7 +147,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button class="btn btn-primary" type="button">Cancel</button>
 						  <button class="btn btn-primary" type="reset">Reset</button>
-                          <button type="button" onclick="validation()" class="btn btn-success">Submit</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
 
@@ -176,6 +158,11 @@
             </div>
             </div>
             </div>
+            
+            
+            
+            <!-- Modal -->
+
 
     <!-- jQuery -->
     <script src="${pageContext.request.contextPath}/resources/portal/vendors/jquery/dist/jquery.min.js"></script>

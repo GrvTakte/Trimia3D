@@ -21,14 +21,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.trimia.model.CompanyMasterClient;
+import com.app.trimia.model.Login;
 import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.MaterialSpecializationSubCategory;
-<<<<<<< HEAD
 import com.app.trimia.model.ProviderMaster;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
-=======
 import com.app.trimia.serviceinterface.CompanyMasterClientInterface;
->>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 import com.app.trimia.serviceinterface.SpecializationSubCategoryServiceInterface;
 
 @RestController
@@ -38,11 +36,10 @@ public class RestDataController {
 	SpecializationSubCategoryServiceInterface subCatService;
 	
 	@Autowired
-<<<<<<< HEAD
 	SettingsServiceInterface settingsservicei;
-=======
+	
+	@Autowired
 	CompanyMasterClientInterface clientService;
->>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
 	
 	@RequestMapping(value="/subCategory")
 	private ResponseEntity<List<MaterialSpecializationSubCategory>> subCategory(@RequestParam String id){
@@ -54,22 +51,19 @@ public class RestDataController {
 		return new ResponseEntity<List<MaterialSpecializationSubCategory>>(list,HttpStatus.OK);
 	}
 	
-<<<<<<< HEAD
-	
 	@RequestMapping(value="/checkOldPass",method=RequestMethod.POST)
 	private ResponseEntity<ProviderMaster> checkOldPass(@RequestParam String id,@RequestParam String old)
 	{
 		System.out.println("checkOldPass called");
 		System.out.println(id+"  "+old);
-		ProviderMaster pm=settingsservicei.getProviderMasterByPass(old);
-		System.out.println(pm);
-		System.out.println(pm.getProviderMasterId()+"  "+pm.getLogin().getPassword());
-		System.out.println("hii");
+		Login login = new Login();
+		login.setPassword(old);
+		ProviderMaster pm=settingsservicei.getProviderMasterByPass(login);
+		System.out.println(pm.getLogin().getPassword());
 		return new ResponseEntity<ProviderMaster>(pm, HttpStatus.OK);
 		
 	}
 	
-=======
 	@RequestMapping("/addClient")
 	public ResponseEntity<CompanyMasterClient> addClient(@RequestParam String clientId, @RequestParam String clientName)
 	{
@@ -83,17 +77,16 @@ public class RestDataController {
 		return new ResponseEntity<CompanyMasterClient>(HttpStatus.OK);
 	}
 	
-	@RequestMapping("/uploadFile")
-	public ResponseEntity<String> uploadFile(HttpServletResponse response, HttpServletRequest request){
-		System.out.println("upload File Started");
-		return new ResponseEntity<String>("File Uploaded Successfully",HttpStatus.OK);
-	}
-	
 	@RequestMapping("/viewClient")
 	public ResponseEntity<List<CompanyMasterClient>> viewAllClient(){
 		System.out.println(" in view clint");
 		List<CompanyMasterClient> client_list=clientService.viewAllClient();
 		return new ResponseEntity<List<CompanyMasterClient>>(client_list,HttpStatus.OK);
 	}
->>>>>>> branch 'master' of https://github.com/GrvTakte/Trimia3D
+	
+	@RequestMapping("/saveSpecialization")
+	public ResponseEntity<String> saveSpecialization(){
+		
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
 }

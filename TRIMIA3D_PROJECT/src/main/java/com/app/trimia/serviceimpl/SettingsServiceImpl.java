@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.app.trimia.daointerface.SettingsDaoInterface;
+import com.app.trimia.model.Login;
 import com.app.trimia.model.ProviderMaster;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 
@@ -23,9 +24,9 @@ public class SettingsServiceImpl implements SettingsServiceInterface
 	}
 
 	@Override
-	public ProviderMaster getProviderMasterByPass(String old) {
-		ProviderMaster pm = settingdaoi.findAllByLogin_login_id(old);
-		return null;
+	public ProviderMaster getProviderMasterByPass(Login login) {
+		ProviderMaster pm = settingdaoi.findByLogin(login);
+		return pm;
 	}
 
 	

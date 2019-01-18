@@ -29,7 +29,5 @@ public class MaterialsCategory{
 	}
 	public void setMaterialCategoryName(String materialCategoryName) {
 		this.materialCategoryName = materialCategoryName;
-	}
-	
-	
+	}	
 }

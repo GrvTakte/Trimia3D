@@ -156,11 +156,11 @@
                       
                       <!-- start of user-activity-graph -->
                       <hr>
+                     	
+                      <form action="updateSettings" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                      
-                      <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                       <div id="graph_bar" style="width:100%; height:280px;">
-                   
-                     	<div class="form-group">
+                      	<div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="providerMasterName">Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -192,24 +192,29 @@
                         <label for="providerMasterAadhaar" class="control-label col-md-3 col-sm-3 col-xs-12">Adhar Card</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="providerMasterAadhaar" class="form-control col-md-7 col-xs-12" type="number" name="providerMasterAadhaar" value="${pm.getProviderMasterAadhaar()}" readonly="readonly">
-                        </div>
+                       </div>
                       </div>
-					        
+                      
+                      </div>
                       </form>
+                   		
+                     
+					 
+                      
                       </div>
                       
                       </div>
                       <!-- end of user-activity-graph -->
 
-                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                       <!--  <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                   <!--    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                            <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
                           </li>
                           <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Projects Worked on</a>
                           </li>
                           <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
                           </li> 
-                        </ul> -->
+                        </ul>
                         <div id="myTabContent" class="tab-content">
                           <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
@@ -224,7 +229,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+ -->                  </div>
                 </div>
               </div>
             </div>
@@ -261,7 +266,7 @@
                             <div class="col-md-4 col-sm-4 col-xs-12">
                               <input id="houseNumber" class="form-control col-md-7 col-xs-12" type="text" name="houseNumber" value="${add.getHouseNumber()}">
                             </div>
-    
+    				</div>
                         
               
                  
@@ -278,18 +283,20 @@
                             <div class="col-md-4 col-sm-4 col-xs-12">
                               <input id="area" class="form-control col-md-7 col-xs-12" type="text" name="area" value=" ${add.getArea()}">
                             </div>
+                      </div>
                  <div class="form-group">
                             <label for="city" class="control-label col-md-2 col-sm-2 col-xs-12">City:</label>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                               <input id="city" class="form-control col-md-7 col-xs-12" type="text" name="city" value=" ${add.getCity()}">
                             </div>
               </div>
-              
+              </div>
               <div class="row">
                 <div class="form-group">
                             <label for="taluka" class="control-label col-md-2 col-sm-2 col-xs-12">Taluka:</label>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                               <input id="taluka" class="form-control col-md-7 col-xs-12" type="text" name="taluka" value="${add.getTehsil()}">
+                            </div>
                             </div>
                  <div class="form-group">
                             <label for="district" class="control-label col-md-2 col-sm-2 col-xs-12">District:</label>
@@ -297,22 +304,26 @@
                               <input id="district" class="form-control col-md-7 col-xs-12" type="text" name="district" value="  ${add.getDistrict()}">
                             </div>
               </div>
-              
+              </div>
               <div class="row">
               <div class="form-group">
                             <label for="state" class="control-label col-md-2 col-sm-2 col-xs-12">State:</label>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                               <input id="state" class="form-control col-md-7 col-xs-12" type="text" name="state" value="  ${add.getState()}">
                             </div>
+                            </div>
+                            
                  <div class="form-group">
                             <label for="country" class="control-label col-md-2 col-sm-2 col-xs-12">Country:</label>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                               <input id="country" class="form-control col-md-7 col-xs-12" type="text" name="country" value="  ${add.getCountry()}">
                             </div>
               </div>
-                
+                </div>
+               
                </form>
                       </div>
+                     
                     </div>
                   </div>
                 </div>
@@ -325,23 +336,23 @@
                                 <button type="submit" class="btn btn-success">SAVE</button>
                               <button class="btn btn-primary" type="reset">Clear</button>
                             </div>
-                          
-             
-                   </form>
+                        
+           				
                       </div>
+                      
                     </div>
                   </div>
               </div>
              
 
              
-              
+      
              
       
                  
                         
-            </div>
-          </div>   
+            
+             
                 
                  
 
@@ -370,10 +381,10 @@
       </footer> -->
       <!-- /footer content -->
 
-        </div>
+        
         
        
-           </div>
+           
            
 
            

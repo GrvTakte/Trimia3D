@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.trimia.model.MaterialSpecializationCategory;
 import com.app.trimia.model.MaterialSpecializationSubCategory;
+import com.app.trimia.model.ProviderMaster;
+import com.app.trimia.serviceinterface.SettingsServiceInterface;
 import com.app.trimia.serviceinterface.SpecializationSubCategoryServiceInterface;
 
 @RestController
@@ -22,6 +24,9 @@ public class RestDataController {
 	@Autowired
 	SpecializationSubCategoryServiceInterface subCatService;
 	
+	@Autowired
+	SettingsServiceInterface settingsservicei;
+	
 	@RequestMapping(value="/subCategory")
 	private ResponseEntity<List<MaterialSpecializationSubCategory>> subCategory(@RequestParam String id){
 		System.out.println(id);
@@ -29,6 +34,20 @@ public class RestDataController {
 		cat.setSpecializationCategoryId(id);
 		List<MaterialSpecializationSubCategory> list = subCatService.getAllSubCategory(cat);
 		return new ResponseEntity<List<MaterialSpecializationSubCategory>>(list,HttpStatus.OK);
+	}
+	
+	
+	@RequestMapping(value="/checkOldPass",method=RequestMethod.POST)
+	private ResponseEntity<ProviderMaster> checkOldPass(@RequestParam String id,@RequestParam String old)
+	{
+		System.out.println("checkOldPass called");
+		System.out.println(id+"  "+old);
+		ProviderMaster pm=settingsservicei.getProviderMasterByPass(old);
+		System.out.println(pm);
+		System.out.println(pm.getProviderMasterId()+"  "+pm.getLogin().getPassword());
+		System.out.println("hii");
+		return new ResponseEntity<ProviderMaster>(pm, HttpStatus.OK);
+		
 	}
 	
 }

@@ -9,4 +9,8 @@ public interface SettingsServiceInterface {
 
 	public ProviderMaster getProviderMaster(String id);
 
+	public ProviderMaster getProviderMasterByPass(String old);
+
+	
+
 }

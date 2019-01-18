@@ -143,4 +143,18 @@ public class HomeController {
 		System.out.println("AdminPaymentStatus");
 		return "/serviceProviderPages/AdminPaymentStatus";
 	}
+	
+	@RequestMapping("/updateSettings")
+	public String updateSettings()
+	{
+		System.out.println("updateSettings called");
+		return "/serviceProviderPages/setting";
+	}
+	
+	@RequestMapping("/resetPassword")
+	public String resetPassword()
+	{
+		System.out.println("resetPassword called");
+		return "/serviceProviderPages/resetPassword";
+	}
 }

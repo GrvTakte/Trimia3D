@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: TRIMIA3D_PROJECT
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Gaurav
+Built-By: Sultan
 Implementation-Vendor-Id: com.app.trimia
-Build-Jdk: 1.8.0_144
+Build-Jdk: 1.8.0
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/TRIMIA3D_PROJECT
 Created-By: Maven Integration for Eclipse

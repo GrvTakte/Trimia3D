@@ -38,7 +38,7 @@ public class RestDataController {
 		return new ResponseEntity<List<MaterialSpecializationSubCategory>>(list,HttpStatus.OK);
 	}
 	
-	@RequestMapping
+	@RequestMapping("/addClient")
 	public ResponseEntity<CompanyMasterClient> addClient(@RequestParam String clientId, @RequestParam String clientName)
 	{
 		
@@ -51,12 +51,7 @@ public class RestDataController {
 		
 	}
 	
-	@RequestMapping 
-	public ResponseEntity<List<CompanyMasterClient>> viewAllClient(){
-		System.out.println(" in view clint");
-		List<CompanyMasterClient> client_list=clientService.viewAllClient();
-		
-	}
+	
 
 
 }

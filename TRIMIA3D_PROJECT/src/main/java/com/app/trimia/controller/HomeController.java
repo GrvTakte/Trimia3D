@@ -3,24 +3,25 @@ package com.app.trimia.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.app.trimia.model.Address;
 import com.app.trimia.model.Login;
 
 import com.app.trimia.model.Feedback;
 
 import com.app.trimia.model.MaterialSpecializationCategory;
+import com.app.trimia.model.ProductQuotation;
 import com.app.trimia.model.ProviderMaster;
 
 import com.app.trimia.serviceinterface.ProviderMasterServiceInterface;
 
 import com.app.trimia.serviceinterface.FeedbackInterface;
-
+import com.app.trimia.serviceinterface.ProductQautationSeviceInterface;
 import com.app.trimia.serviceinterface.SettingsServiceInterface;
 import com.app.trimia.serviceinterface.SpecializationCategoryServiceInterface;
 
@@ -35,14 +36,42 @@ public class HomeController {
 	
 	@Autowired
 	ProviderMasterServiceInterface masterService;
-
+	
+	@Autowired
 	FeedbackInterface feedbackservice;
 
+	@Autowired
+	ProductQautationSeviceInterface quatationService;  
+	
 	@RequestMapping("/")
 	public String dashboard()
 	{
 		System.out.println("dashboard");
 		return "/serviceProviderPages/dashboard";
+	}
+	
+	@RequestMapping("/login")
+	public String loginPage()
+	{
+		System.out.println("Login Page");
+		return "/serviceProviderPages/login";
+	}
+	
+	
+	@RequestMapping(value="/log",method=RequestMethod.POST)
+	public String loginServiceProvider(@RequestParam String email,@RequestParam String password)
+	{
+		System.out.println(email);
+		System.out.println(password);
+		if(email.equals("service@gmail.com") && password.equals("Service123") )
+		{
+			return "/serviceProviderPages/dashboard";
+		}
+		else
+		{
+			return "/serviceProviderPages/login";	
+		}
+		
 	}
 	
 	@RequestMapping("/dashboard")
@@ -103,10 +132,22 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/productQA")
-	public String productQA()
+	public String productQA(ModelMap map)
 	{
 		System.out.println("productQA");
+		
+		List<ProductQuotation> qlist=quatationService.productQA();
+		map.addAttribute("quatation",qlist);
 		return "/serviceProviderPages/productQA";
+	}
+	
+	
+	@RequestMapping("/addQuatation")
+	public String addQuatation(@ModelAttribute ProductQuotation pQuatation)
+	{
+		System.out.println("Add Quatation");
+		quatationService.addQuatation(pQuatation);
+		return "/serviceProviderPages/dashboard";
 	}
 	
 	@RequestMapping("/orderTracking")
@@ -178,4 +219,7 @@ public class HomeController {
 		masterService.registerProvider(master);
 		return "/serviceProviderPages/login";
 	}
+	
+	
+	
 }

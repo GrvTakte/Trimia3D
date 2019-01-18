@@ -1,5 +1,7 @@
 package com.app.trimia.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,12 @@ public class CompanyMasterClientImpl implements CompanyMasterClientInterface{
 	@Override
 	public void addClient(CompanyMasterClient companyMasterClient) {
 		clientDao.save(companyMasterClient);
+	}
+
+	@Override
+	public List<CompanyMasterClient> viewAllClient() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

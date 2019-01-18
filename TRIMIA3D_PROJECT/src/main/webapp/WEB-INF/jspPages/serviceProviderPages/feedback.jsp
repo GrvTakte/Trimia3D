@@ -158,11 +158,11 @@
         </div>
         <!-- /page content -->
 
-        <!-- footer content -->
+       <!--  <!-- footer content -->
         <div class="footer1">
         <p style="right:0;">Trimia3D</p>
         </div>
-        <!-- /footer content -->
+        /footer content -->
       </div>
     </div>
 

@@ -31,10 +31,7 @@
                   <li><a href="setting"><i class="fa fa-cog"></i> Settings</a></li>
 				  <li><a href="client"><i class="fa fa-user"></i> Clients</a></li>
 				     <li><a href="adminPaymentStatus"><i class="fa fa-usd"></i>Payment Status</a>
-                   <!--  <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Material Payment</a></li>
-                      <li><a href="fixed_footer.html">Product Payment</a></li>
-                    </ul> -->
+                   
                   </li>
 				  <li><a><i class="fa fa-usd"></i>Company<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -44,8 +41,6 @@
                   </li>
 				  <li><a href="feedback"><i class="fa fa-comment"></i> Feedback</a></li>
 				  
-                  <!-- <li><a href="productQA"><i class="fa fa-table"></i> Product QA</a></li>
-                  <li><a href="orderTracking"><i class="fa fa-bar-chart-o"></i> Order Tracking</a></li> -->
                
                 </ul>
               </div>
